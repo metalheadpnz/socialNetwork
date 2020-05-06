@@ -1,11 +1,11 @@
 import React from 'react';
-//import mainContentPic from "./../src/img/images.jpg";
 import mainContentPic from "./../img/mainContentPic01.jpg";
+import s from './Profile.module.css';
 
 function Profile() {
     return (
-        <div className="profile">
-            <img src={mainContentPic} className="mainContentPic" />
+        <div className={s.profile}>
+            <img src={mainContentPic} />
             <br />
             Компонента профайл
         </div>

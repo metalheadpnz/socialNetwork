@@ -12,26 +12,6 @@
 
 }
 
-.header{
-grid-area: header;
-background-color: burlywood;
-}
-
-.nav{
-grid-area: nav;
-background-color: darkcyan;
-}
-
-.profile{
-grid-area: mainContent;
-background-color: lightblue;
-}
-
-.footer{
-grid-area: footer;
-background-color: burlywood;
-}
-
 .mainContentPic {
   width: 100%;
   height: 100px;
