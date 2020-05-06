@@ -1,6 +1,7 @@
 .profile{
-    grid-area: mainContent;
+    grid-area: profile;
     background-color: lightblue;
+   
     }
 .profile img {
     width: 100%;
