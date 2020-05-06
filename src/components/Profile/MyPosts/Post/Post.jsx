@@ -13,7 +13,7 @@ function Post(props) {
             </span>
             <div className={s.like}>
                 <span>
-                    лойз
+                    лойз <span className={s.likeCounter}>{props.likeCounter}</span>
                 </span>
             </div>
         </div>
