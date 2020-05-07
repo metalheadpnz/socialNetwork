@@ -7,12 +7,12 @@ function Profile() {
     return (
         <div className={s.profile}>
             <div>
-                <img src={mainContentPic} />
+                <img src={mainContentPic}/>
             </div>
             <div>
                 Avatar + description
             </div>
-            <MyPosts />
+            <MyPosts/>
         </div>
     );
 }
