@@ -1,5 +1,5 @@
 import React from 'react';
-import mainContentPic from "./../../img/mainContentPic01.jpg";
+import mainContentPic from "../../../img/mainContentPic01.jpg";
 import s from './Profile.module.css';
 import MyPosts from './MyPosts/MyPosts';
 

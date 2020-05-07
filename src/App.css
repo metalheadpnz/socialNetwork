@@ -2,7 +2,7 @@
   display: grid;
   grid-template-areas: 
   "header header"
-  "nav profile"
+  "nav mainContent"
    "footer footer"; 
 
    grid-template-columns: 2fr 10fr;
