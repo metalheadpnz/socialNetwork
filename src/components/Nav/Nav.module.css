@@ -2,3 +2,11 @@
     grid-area: nav;
     background-color: darkcyan;
     }
+.nav a {
+    color: lightgoldenrodyellow;
+    text-decoration: none;
+}
+
+.nav a.active {
+    color: lightsalmon;
+}
