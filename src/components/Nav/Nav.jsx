@@ -8,16 +8,16 @@ function Nav() {
                 <a href="/Profile">Profile</a>
             </div>
             <div>
-                <a href="/Dialogs">Messages</a>
+                <a href="/Messages">Messages</a>
             </div>
             <div>
-                <a href="">News</a>
+                <a href="/News">News</a>
             </div>
             <div>
-                <a href="">Music</a>
+                <a href="/Music">Music</a>
             </div>
             <div>
-                <a href="">Settings</a>
+                <a href="/Settings">Settings</a>
             </div>
         </nav>
     );
