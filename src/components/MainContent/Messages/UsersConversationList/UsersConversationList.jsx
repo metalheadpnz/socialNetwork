@@ -6,7 +6,9 @@ import s from './UsersConversationList.module.css';
 function UserInList(props) {
     return (
         <div>
-            <NavLink className={s.nav} to={`/Messages/${props.id}`} activeClassName={s.active}>{props.user}</NavLink>
+            <NavLink className={s.usersListItem} to={`/Messages/${props.id}`} activeClassName={s.active}>
+                {props.userName}
+            </NavLink>
         </div>
     );
 
@@ -14,11 +16,21 @@ function UserInList(props) {
 
 
 function UsersConversationList(props) {
+
+    let usersInListData = [
+        {id: 1, userName: 'Vasyan'},
+        {id: 2, userName: 'Boryan'},
+        {id: 3, userName: 'Mixan'},
+        {id: 4, userName: 'Mixan'},
+        {id: 5, userName: 'Mixan'}
+    ]
+
+
+    let usersInListElements = usersInListData.map(user => <UserInList userName={user.userName} id={user.id}/>)
+
     return (
         <div>
-            <UserInList user='Vasyan' id='1'/>
-            <UserInList user='Boryan' id='2'/>
-            <UserInList user='Mixan' id='3'/>
+            {usersInListElements}
         </div>
     );
 }
