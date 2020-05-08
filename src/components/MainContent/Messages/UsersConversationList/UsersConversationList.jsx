@@ -26,11 +26,11 @@ function UsersConversationList(props) {
     ]
 
 
-    let usersInListElements = usersInListData.map(user => <UserInList userName={user.userName} id={user.id}/>)
+    let usersInListArr = usersInListData.map(user => <UserInList userName={user.userName} id={user.id}/>)
 
     return (
         <div>
-            {usersInListElements}
+            {usersInListArr}
         </div>
     );
 }

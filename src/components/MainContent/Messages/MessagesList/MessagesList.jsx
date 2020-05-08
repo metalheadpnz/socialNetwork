@@ -11,11 +11,11 @@ function MessagesList() {
     ]
 
 
-    let messagesElements = messagesData.map(m => <div>{m.message}</div>);
+    let messagesArr = messagesData.map(m => <div>{m.message}</div>);
 
     return (
         <div>
-            {messagesElements}
+            {messagesArr}
         </div>
     );
 }
