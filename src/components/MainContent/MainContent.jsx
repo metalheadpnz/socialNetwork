@@ -11,11 +11,13 @@ function MainContent() {
     return (
 
         <div className={s.mainContent}>
+            <Route exact path='/' component={Profile}/> {/*Для отрисовки не пустого MainContent при загрузке*/}
             <Route path='/Profile' component={Profile}/>
+            <Route path='/Messages' component={Messages}/>
             <Route path='/News' component={News}/>
             <Route path='/Music' component={Music}/>
             <Route path='/Settings' component={Settings}/>
-            <Route path='/Messages' component={Messages}/>
+
         </div>
 
     );

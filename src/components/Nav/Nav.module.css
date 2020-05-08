@@ -1,7 +1,9 @@
 .nav{
     grid-area: nav;
     background-color: darkcyan;
+padding: 10px;
     }
+
 .nav a {
     color: lightgoldenrodyellow;
     text-decoration: none;

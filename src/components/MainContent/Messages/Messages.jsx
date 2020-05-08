@@ -1,9 +1,15 @@
 import React from 'react';
 import s from "./Messages.module.css";
+import UsersConversationList from "./UsersConversationList/UsersConversationList";
+import MessagesList from "./MessagesList/MessagesList";
 
 function Messages() {
     return (
-        <div>Сообщения</div>
+        <div className={s.messages}>
+            <UsersConversationList />
+            <MessagesList/>
+        </div>
+
     );
 }
 

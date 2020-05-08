@@ -2,15 +2,19 @@ import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
-function MyPosts() {
+function MyPosts(props) {
     return (
-        <div>
-            <div>
+        <div className={s.myPosts}>
+            <h3>
                 My posts
-            </div>
-            <form action="">
-                <input type="text"/>
-                <button>Add</button>
+            </h3>
+            <form action="" className={s.form}>
+                <div>
+                    <textarea  type="text"/>
+                </div>
+                <div>
+                    <button>Add</button>
+                </div>
             </form>
 
             <Post message="First post" likeCounter="15"/>
