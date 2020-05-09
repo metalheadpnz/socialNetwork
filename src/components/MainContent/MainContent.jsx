@@ -7,13 +7,15 @@ import News from "./News/News";
 import Music from "./Music/Music";
 import Settings from "./Settings/Settings";
 
-function MainContent() {
+function MainContent(props) {
+
+
     return (
 
         <div className={s.mainContent}>
             <Route exact path='/' component={Profile}/> {/*Для отрисовки не пустого MainContent при загрузке*/}
             <Route path='/Profile' component={Profile}/>
-            <Route path='/Messages' component={Messages}/>
+            <Route path='/Messages' render={() => <Messages messagesData={props.messagesData}/>}/>
             <Route path='/News' component={News}/>
             <Route path='/Music' component={Music}/>
             <Route path='/Settings' component={Settings}/>

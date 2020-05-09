@@ -7,14 +7,17 @@ import Footer from './components/Footer/Footer';
 import MainContent from "./components/MainContent/MainContent";
 import {BrowserRouter} from "react-router-dom";
 
-function App() {
+function App(props) {
+
+
+
     return (
         <BrowserRouter>
             <div className="app-wraper">
 
                 <Header/>
                 <Nav/>
-                <MainContent/>
+                <MainContent messagesData={props.messagesData}/>
                 <Footer/>
 
             </div>

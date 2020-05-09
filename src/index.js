@@ -4,9 +4,17 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+let messagesData = [
+    {id: 1, message: 'Message 1'},
+    {id: 2, message: 'Message 2'},
+    {id: 3, message: 'Message 3'},
+    {id: 4, message: 'Message 4'},
+    {id: 5, message: 'Message 5'},
+]
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App messagesData={messagesData}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

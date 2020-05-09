@@ -3,11 +3,12 @@ import s from "./Messages.module.css";
 import UsersConversationList from "./UsersConversationList/UsersConversationList";
 import MessagesList from "./MessagesList/MessagesList";
 
-function Messages() {
+function Messages(props) {
+
     return (
         <div className={s.messages}>
-            <UsersConversationList />
-            <MessagesList/>
+            <UsersConversationList/>
+            <MessagesList messagesData={props.messagesData}/>
         </div>
 
     );

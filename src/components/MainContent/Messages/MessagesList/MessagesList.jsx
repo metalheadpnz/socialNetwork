@@ -1,17 +1,9 @@
 import React from "react";
 
-function MessagesList() {
+function MessagesList(props) {
 
-    let messagesData = [
-        {id: 1, message: 'Message 1'},
-        {id: 2, message: 'Message 2'},
-        {id: 3, message: 'Message 3'},
-        {id: 4, message: 'Message 4'},
-        {id: 5, message: 'Message 5'},
-    ]
+    let messagesArr =  props.messagesData.map(m => <div>{m.message}</div>);
 
-
-    let messagesArr = messagesData.map(m => <div>{m.message}</div>);
 
     return (
         <div>
