@@ -12,7 +12,16 @@ let messagesData = [
     {id: 5, message: 'Message 5'},
 ]
 
-let usersInListData = [
+let postsData = [
+    {id: 1, message: 'First post', likeCounter: 15},
+    {id: 1, message: 'First post', likeCounter: 15},
+    {id: 1, message: 'чета', likeCounter: 10},
+    {id: 1, message: 'Metallica', likeCounter: 100500},
+    {id: 1, message: 'nothing to commit', likeCounter: 666},
+    {id: 1, message: 'Ну хватит уже', likeCounter: 13}
+]
+
+let usersDialogsData = [
     {id: 1, userName: 'Vasyan'},
     {id: 2, userName: 'Boryan'},
     {id: 3, userName: 'Mixan'},
@@ -22,7 +31,7 @@ let usersInListData = [
 
 ReactDOM.render(
   <React.StrictMode>
-    <App messagesData={messagesData}/>
+    <App messagesData={messagesData} postsData={postsData} usersDialogsData={usersDialogsData}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

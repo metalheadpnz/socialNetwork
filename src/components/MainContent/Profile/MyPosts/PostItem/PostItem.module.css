@@ -1,6 +1,8 @@
 .Post {
     color: maroon;
-    /*margin: 50px;*/
+    margin-bottom: 20px;
+    border: dashed lightcoral 1px;
+
 
 }
 
@@ -10,10 +12,16 @@
     border-radius: 50%;
 }
 
-.like{
+.like {
     color: red;
+    font-size: small;
 }
 
-.likeCounter{
+.likeCounter {
     color: black;
+}
+
+.PostItem {
+    margin-top: 20px;
+
 }

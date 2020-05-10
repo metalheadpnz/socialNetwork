@@ -7,7 +7,7 @@ function Dialogs(props) {
 
     return (
         <div className={s.messages}>
-            <DialogsList/>
+            <DialogsList usersDialogsData={props.usersDialogsData}/>
             <MessagesList messagesData={props.messagesData}/>
         </div>
 

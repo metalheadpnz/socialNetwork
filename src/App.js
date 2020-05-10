@@ -17,7 +17,7 @@ function App(props) {
 
                 <Header/>
                 <NavBar/>
-                <MainContent messagesData={props.messagesData}/>
+                <MainContent messagesData={props.messagesData} postsData={props.postsData} usersDialogsData={props.usersDialogsData}/>
                 <Footer/>
 
             </div>

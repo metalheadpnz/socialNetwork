@@ -14,8 +14,8 @@ function MainContent(props) {
 
         <div className={s.mainContent}>
             <Route exact path='/' component={Profile}/> {/*Для отрисовки не пустого MainContent при загрузке*/}
-            <Route path='/Profile' component={Profile}/>
-            <Route path='/Dialogs' render={() => <Dialogs messagesData={props.messagesData}/>}/>
+            <Route path='/Profile' render={() => <Profile postsData={props.postsData}/>}/>
+            <Route path='/Dialogs' render={() => <Dialogs usersDialogsData={props.usersDialogsData} messagesData={props.messagesData}/> }/>
             <Route path='/News' component={News}/>
             <Route path='/Music' component={Music}/>
             <Route path='/Settings' component={Settings}/>
