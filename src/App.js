@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
-import Nav from './components/Nav/Nav';
+import NavBar from './components/NavBar/NavBar';
 // import Profile from './components/MainContent/Profile/Profile';
 import Footer from './components/Footer/Footer';
 import MainContent from "./components/MainContent/MainContent";
@@ -16,7 +16,7 @@ function App(props) {
             <div className="app-wraper">
 
                 <Header/>
-                <Nav/>
+                <NavBar/>
                 <MainContent messagesData={props.messagesData}/>
                 <Footer/>
 

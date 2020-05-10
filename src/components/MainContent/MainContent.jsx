@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./MainContent.module.css";
 import Profile from "./Profile/Profile";
-import Messages from "./Messages/Messages";
+import Dialogs from "./Dialogs/Dialogs";
 import {Route} from "react-router-dom";
 import News from "./News/News";
 import Music from "./Music/Music";
@@ -15,11 +15,10 @@ function MainContent(props) {
         <div className={s.mainContent}>
             <Route exact path='/' component={Profile}/> {/*Для отрисовки не пустого MainContent при загрузке*/}
             <Route path='/Profile' component={Profile}/>
-            <Route path='/Messages' render={() => <Messages messagesData={props.messagesData}/>}/>
+            <Route path='/Dialogs' render={() => <Dialogs messagesData={props.messagesData}/>}/>
             <Route path='/News' component={News}/>
             <Route path='/Music' component={Music}/>
             <Route path='/Settings' component={Settings}/>
-
         </div>
 
     );

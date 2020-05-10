@@ -12,6 +12,14 @@ let messagesData = [
     {id: 5, message: 'Message 5'},
 ]
 
+let usersInListData = [
+    {id: 1, userName: 'Vasyan'},
+    {id: 2, userName: 'Boryan'},
+    {id: 3, userName: 'Mixan'},
+    {id: 4, userName: 'Mixan'},
+    {id: 5, userName: 'Mixan'}
+]
+
 ReactDOM.render(
   <React.StrictMode>
     <App messagesData={messagesData}/>

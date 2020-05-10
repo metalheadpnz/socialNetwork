@@ -2,7 +2,7 @@ import React from "react";
 
 function MessagesList(props) {
 
-    let messagesArr =  props.messagesData.map(m => <div>{m.message}</div>);
+    let messagesArr = props.messagesData.map(m => <div>{m.message}</div>);
 
 
     return (

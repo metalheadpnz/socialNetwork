@@ -1,17 +1,17 @@
 import React from 'react';
-import s from "./Messages.module.css";
-import UsersConversationList from "./UsersConversationList/UsersConversationList";
+import s from "./Dialogs.module.css";
+import DialogsList from "./DialogsList/DialogsList";
 import MessagesList from "./MessagesList/MessagesList";
 
-function Messages(props) {
+function Dialogs(props) {
 
     return (
         <div className={s.messages}>
-            <UsersConversationList/>
+            <DialogsList/>
             <MessagesList messagesData={props.messagesData}/>
         </div>
 
     );
 }
 
-export default Messages;
+export default Dialogs;
