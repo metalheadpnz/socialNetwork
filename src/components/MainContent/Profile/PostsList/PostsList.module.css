@@ -2,8 +2,8 @@
     color: maroon;
     margin-bottom: 20px;
     border: dashed lightcoral 1px;
-
-
+    margin-left: 20px;
+    width: 50%;
 }
 
 .Post img {
@@ -21,7 +21,6 @@
     color: black;
 }
 
-.PostItem {
+.PostsList {
     margin-top: 20px;
-
 }

@@ -1,7 +1,7 @@
 import React from 'react';
-import s from './PostItem.module.css';
+import s from './PostsList.module.css';
 
-function PostItem(props) {
+function PostsList(props) {
 
     let postsDataArr = props.postsData.map(m =>
         <div className={s.Post}>
@@ -19,7 +19,7 @@ function PostItem(props) {
         </div>);
 
     return (
-        <div className={s.PostItem}>
+        <div className={s.PostsList}>
             <div>
                 {postsDataArr}
             </div>
@@ -27,4 +27,4 @@ function PostItem(props) {
     );
 }
 
-export default PostItem;
+export default PostsList;

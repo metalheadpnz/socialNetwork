@@ -8,7 +8,7 @@ function ProfileInfo(props) {
             <div>
                 <img src={mainContentPic}/>
             </div>
-            <div>
+            <div className={s.ava}>
                 Avatar + description
             </div>
         </div>

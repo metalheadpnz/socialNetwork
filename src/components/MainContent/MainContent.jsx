@@ -9,13 +9,11 @@ import Settings from "./Settings/Settings";
 
 function MainContent(props) {
 
-
     return (
 
         <div className={s.mainContent}>
-            <Route exact path='/' component={Profile}/> {/*Для отрисовки не пустого MainContent при загрузке*/}
             <Route path='/Profile' render={() => <Profile postsData={props.postsData}/>}/>
-            <Route path='/Dialogs' render={() => <Dialogs usersDialogsData={props.usersDialogsData} messagesData={props.messagesData}/> }/>
+            <Route path='/Dialogs' render={() => <Dialogs usersDialogsData={props.usersDialogsData} messagesData={props.messagesData}/>}/>
             <Route path='/News' component={News}/>
             <Route path='/Music' component={Music}/>
             <Route path='/Settings' component={Settings}/>
