@@ -10,10 +10,9 @@ import Settings from "./Settings/Settings";
 function MainContent(props) {
 
     return (
-
         <div className={s.mainContent}>
-            <Route path='/Profile' render={() => <Profile postsData={props.postsData}/>}/>
-            <Route path='/Dialogs' render={() => <Dialogs usersDialogsData={props.usersDialogsData} messagesData={props.messagesData}/>}/>
+            <Route path='/Profile' render={() => <Profile ProfileData={props.MainContentData.ProfileData}/>}/>
+            <Route path='/Dialogs' render={() => <Dialogs DialogsData={props.MainContentData.DialogsData} />}/>
             <Route path='/News' component={News}/>
             <Route path='/Music' component={Music}/>
             <Route path='/Settings' component={Settings}/>

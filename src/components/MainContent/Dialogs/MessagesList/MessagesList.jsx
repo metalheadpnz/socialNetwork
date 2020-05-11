@@ -1,9 +1,8 @@
 import React from "react";
 
 function MessagesList(props) {
-
-    let messagesArr = props.messagesData.map(m => <div>{m.message}</div>);
-
+    console.log(props.MessagesListData);
+    let messagesArr = props.MessagesListData.messagesData.map(m => <div>{m.message}</div>);
 
     return (
         <div>
@@ -13,9 +12,3 @@ function MessagesList(props) {
 }
 
 export default MessagesList;
-//
-// var names = ['HTML', 'CSS', 'JavaScript'];
-//
-// var nameLengths = names.map(function(name) {
-//     return name.length;
-// });

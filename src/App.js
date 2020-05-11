@@ -2,14 +2,11 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import NavBar from './components/NavBar/NavBar';
-// import Profile from './components/MainContent/Profile/Profile';
 import Footer from './components/Footer/Footer';
 import MainContent from "./components/MainContent/MainContent";
 import {BrowserRouter} from "react-router-dom";
 
 function App(props) {
-
-
 
     return (
         <BrowserRouter>
@@ -17,7 +14,7 @@ function App(props) {
 
                 <Header/>
                 <NavBar/>
-                <MainContent messagesData={props.messagesData} postsData={props.postsData} usersDialogsData={props.usersDialogsData}/>
+                <MainContent MainContentData={props.state.MainContentData}/>
                 <Footer/>
 
             </div>
