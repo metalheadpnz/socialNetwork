@@ -4,14 +4,12 @@ import s from './DialogsList.module.css';
 
 function DialogsList(props) {
 
-    let DialogList = props.DialogsListData.usersDialogsData.map(arr =>
-        <div><NavLink activeClassName={s.active} className={s.dialogList}
-                      to={`/Dialogs/${arr.id}`}>{arr.userName}</NavLink>
-        </div>);
-
     return (
         <div>
-            {DialogList}
+            {props.DialogsListData.usersDialogsData.map(arr =>
+                <div><NavLink activeClassName={s.active} className={s.dialogList}
+                              to={`/Dialogs/${arr.id}`}>{arr.userName}</NavLink>
+                </div>)}
         </div>
     );
 }

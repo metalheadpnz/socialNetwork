@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import MainContent from "./components/MainContent/MainContent";
 import {BrowserRouter} from "react-router-dom";
+import SideBar from "./components/SideBar/SideBar";
 
 function App(props) {
 
@@ -13,7 +14,7 @@ function App(props) {
             <div className="app-wraper">
 
                 <Header/>
-                <NavBar/>
+                <SideBar SideBar={props.state.SideBarData}/>
                 <MainContent MainContentData={props.state.MainContentData}/>
                 <Footer/>
 

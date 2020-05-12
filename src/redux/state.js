@@ -32,6 +32,12 @@ let state = {
                 ]
             }
         }
+    },
+    SideBarData: {
+        FriendsPanelSmall: [
+            {id: 1, userName: 'Vasyan'},
+            {id: 2, userName: 'Boryan'},
+            {id: 3, userName: 'Mixan'}]
     }
 }
 

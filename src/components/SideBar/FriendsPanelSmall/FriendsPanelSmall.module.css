@@ -1,0 +1,23 @@
+.FriendsPanelSmall {
+    /*border: dashed black 1px;*/
+}
+
+.FriendsPanelSmall a {
+    color: lightgoldenrodyellow;
+    text-decoration: none;
+}
+
+.FriendsPanelSmall a.active {
+    color: lightsalmon;
+}
+
+.FriendsPanelSmallItem {
+    display: inline-block;
+    /*border: dashed palevioletred 1px;*/
+    margin: 3px;
+}
+
+.FriendsPanelSmall img {
+    width: 64px;
+    border-radius: 50%;
+}

@@ -20,6 +20,8 @@ function NavBar() {
             <div>
                 <NavLink to="/Settings" activeClassName={s.active}>Settings</NavLink>
             </div>
+            <hr/>
+
         </nav>
     );
 }

@@ -1,0 +1,6 @@
+.SideBar{
+    grid-area: sideBar;
+    background-color: darkcyan;
+    padding: 10px;
+    min-height: 500px;
+}
