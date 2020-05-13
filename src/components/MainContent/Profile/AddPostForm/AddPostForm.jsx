@@ -2,15 +2,19 @@ import s from "./AddPostForm.module.css";
 import React from "react";
 
 function AddPostForm() {
+
+    let Add = (param) => alert(param);
+    let val = React.createRef();
+
     return (
         <div className={s.AddPostForm}>
 
             <form action="" className={s.form}>
                 <div>
-                    <textarea type="text"/>
+                    <textarea ref={val} type="text"/>
                 </div>
                 <div>
-                    <button>Add</button>
+                    <button onClick={() => Add(val.current.value)}>Add</button>
                 </div>
             </form>
         </div>

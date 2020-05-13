@@ -2,8 +2,9 @@ import React from "react";
 import s from './FriendsPanelSmall.module.css';
 import {NavLink} from "react-router-dom";
 
-function FriendsPanelSmall(props) {
-    console.log(props.FriendsPanelSmall);
+// function FriendsPanelSmall(props) {
+let FriendsPanelSmall = (props) => {
+
     let url = "http://avotarov.ru/picture/avatarki/17/kartinki/76-5.jpg";
     return (
         <div className={s.FriendsPanelSmall}>
