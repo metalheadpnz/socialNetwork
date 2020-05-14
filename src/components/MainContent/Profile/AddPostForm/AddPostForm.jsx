@@ -1,7 +1,7 @@
 import s from "./AddPostForm.module.css";
 import React from "react";
 
-function AddPostForm() {
+function AddPostForm(props) {
 
     let Add = (param) => alert(param);
     let val = React.createRef();

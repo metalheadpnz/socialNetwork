@@ -41,4 +41,19 @@ let state = {
     }
 }
 
+
+export let addPost = (newPostMessage) => {
+
+    let newPost = {
+        id: 5,
+        message: newPostMessage,
+        likeCounter: 0
+    };
+
+    state.MainContentData.ProfileData.PostListData.postsData.push(newPost);
+}
+
 export default state;
+
+
+
