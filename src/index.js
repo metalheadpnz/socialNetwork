@@ -5,35 +5,17 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import state from "./redux/state";
 
-// let messagesData = [
-//     {id: 1, message: 'Message 1'},
-//     {id: 2, message: 'Message 2'},
-//     {id: 3, message: 'Message 3'},
-//     {id: 4, message: 'Message 4'},
-//     {id: 5, message: 'Message 5'},
-// ]
-// let postsData = [
-//     {id: 1, message: 'First post', likeCounter: 15},
-//     {id: 1, message: 'First post', likeCounter: 15},
-//     {id: 1, message: 'чета', likeCounter: 10},
-//     {id: 1, message: 'Metallica', likeCounter: 100500},
-//     {id: 1, message: 'nothing to commit', likeCounter: 666},
-//     {id: 1, message: 'Ну хватит уже', likeCounter: 13}
-// ]
-// let usersDialogsData = [
-//     {id: 1, userName: 'Vasyan'},
-//     {id: 2, userName: 'Boryan'},
-//     {id: 3, userName: 'Mixan'},
-//     {id: 4, userName: 'Mixan'},
-//     {id: 5, userName: 'Mixan'}
-// ]
+let reRender = () => {
+    ReactDOM.render(
+        <React.StrictMode>
+            <App state={state}/>
+        </React.StrictMode>,
+        document.getElementById('root')
+    );
+}
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App state={state}/>
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+reRender();
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

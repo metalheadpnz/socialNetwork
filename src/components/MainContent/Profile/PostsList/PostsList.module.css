@@ -1,26 +1,3 @@
-.Post {
-    color: maroon;
-    margin-bottom: 20px;
-    border: dashed lightcoral 1px;
-    margin-left: 20px;
-    width: 50%;
-}
-
-.Post img {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-}
-
-.like {
-    color: red;
-    font-size: small;
-}
-
-.likeCounter {
-    color: black;
-}
-
 .PostsList {
     margin-top: 20px;
 }

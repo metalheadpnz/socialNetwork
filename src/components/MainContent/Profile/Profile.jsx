@@ -11,7 +11,7 @@ function Profile(props) {
         <div className={s.profile}>
             <ProfileInfo/>
             <AddPostForm/>
-            <PostsList PostListData={props.ProfileData.PostListData}/>
+            <PostsList PostsListData={props.ProfileData.PostsListData}/>
 
         </div>
     );

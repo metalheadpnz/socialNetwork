@@ -1,14 +1,14 @@
 let state = {
     MainContentData: {
         ProfileData: {
-            PostListData: {
-                postsData: [
+            PostsListData: {
+                PostItemData: [
                     {id: 1, message: 'First post', likeCounter: 15},
-                    {id: 1, message: 'First post', likeCounter: 15},
-                    {id: 1, message: 'чета', likeCounter: 10},
-                    {id: 1, message: 'Metallica', likeCounter: 100500},
-                    {id: 1, message: 'nothing to commit', likeCounter: 666},
-                    {id: 1, message: 'Ну хватит уже', likeCounter: 13}
+                    {id: 2, message: 'First post', likeCounter: 15},
+                    {id: 3, message: 'чета', likeCounter: 10},
+                    {id: 4, message: 'Metallica', likeCounter: 100500},
+                    {id: 5, message: 'nothing to commit', likeCounter: 666},
+                    {id: 6, message: 'Ну хватит уже', likeCounter: 13}
                 ]
             }
         },
@@ -50,7 +50,7 @@ export let addPost = (newPostMessage) => {
         likeCounter: 0
     };
 
-    state.MainContentData.ProfileData.PostListData.postsData.push(newPost);
+    state.MainContentData.ProfileData.PostsListData.PostItemData.push(newPost);
 }
 
 export default state;
