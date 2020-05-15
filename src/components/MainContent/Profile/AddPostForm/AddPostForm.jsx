@@ -4,7 +4,6 @@ import s from "./AddPostForm.module.css";
 
 function AddPostForm(props) {
 
-
     let AddPost = () => {
         props.AddPostFormData(newPostText.current.value);
         newPostText.current.value = '';
@@ -13,14 +12,11 @@ function AddPostForm(props) {
 
     return (
         <div className={s.AddPostForm}>
-
-            <div className={s.form}>
-                <div>
-                    <textarea ref={newPostText} type="text"/>
-                </div>
-                <div>
-                    <button onClick={AddPost}>Add</button>
-                </div>
+            <div>
+                <textarea ref={newPostText} type="text"/>
+            </div>
+            <div>
+                <button onClick={AddPost}>Add</button>
             </div>
         </div>
     )
