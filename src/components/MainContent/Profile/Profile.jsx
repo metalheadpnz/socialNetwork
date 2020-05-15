@@ -1,5 +1,4 @@
 import React from 'react';
-
 import s from './Profile.module.css';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import AddPostForm from "./AddPostForm/AddPostForm";
@@ -10,7 +9,7 @@ function Profile(props) {
     return (
         <div className={s.profile}>
             <ProfileInfo/>
-            <AddPostForm/>
+            <AddPostForm AddPostFormData={props.ProfileData.AddPostFormData}/>
             <PostsList PostsListData={props.ProfileData.PostsListData}/>
 
         </div>

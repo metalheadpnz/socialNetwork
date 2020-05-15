@@ -2,8 +2,6 @@ import React from "react";
 import s from './PostItem.module.css';
 
 function PostItem(props) {
-
-
     return (
         <div className={s.Post}>
             <img
