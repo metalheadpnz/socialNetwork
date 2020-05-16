@@ -3,15 +3,21 @@ import s from './SendMessageForm.module.css';
 
 let SendMessageForm = (props) => {
 
-   let send = (param) => alert(param);
+
+    function sendCurrentText() {
+        props.SendMessageFormData.sendCurrentText(val.current.value)
+    }
 
 
-   let val = React.createRef();
+
+    let send = (param) => alert(param);
+
+    let val = React.createRef();
 
     return (
         <div className={s.SendMessageForm}>
-            <textarea ref={val}></textarea>
-            <button onClick={()=> send(val.current.value) }>Send</button>
+            <textarea onChange={sendCurrentText} value={props.SendMessageFormData.currentMessage} ref={val}></textarea>
+            <button onClick={props.SendMessageFormData.addMessage}>Send</button>
         </div>
     );
 }

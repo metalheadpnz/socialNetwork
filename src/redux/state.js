@@ -1,31 +1,37 @@
 import {reRender} from "../render";
 
-function addPost(newPostMessage) {
-    let newPost = {
-        id: 5,
-        message: newPostMessage,
-        likeCounter: 0
-    };
-    state.MainContentData.ProfileData.PostsListData.PostItemData.push(newPost);
+function addPost() {
+    if (state.MainContentData.ProfileData.AddPostFormData.textareaData != '') {
+        let newPost = {
+            id: 5,
+            message: state.MainContentData.ProfileData.AddPostFormData.textareaData,
+            likeCounter: 0
+        };
+        state.MainContentData.ProfileData.PostsListData.PostItemData.push(newPost);
+        state.MainContentData.ProfileData.AddPostFormData.textareaData = '';
+        reRender(state);
+    }
+}
+
+function addTextAreaChangeToState(textValue) {
+    state.MainContentData.ProfileData.AddPostFormData.textareaData = textValue;
     reRender(state);
 }
 
-
-// let addPost = (newPostMessage) => {
-//
-// }
 
 let state = {
     MainContentData: {
         ProfileData: {
             PostsListData: {
                 PostItemData: [
-                    {id: 1, message: 'First post', likeCounter: 15},
-                    {id: 2, message: 'First post', likeCounter: 15},
+                    {id: 1, message: 'First post', likeCounter: 15}
                 ]
-
             },
-            AddPostFormData: addPost
+            AddPostFormData: {
+                addPost: addPost,
+                textareaData: '',
+                addTextAreaChangeToState: addTextAreaChangeToState
+            }
         },
         DialogsData: {
             DialogsListData: {
@@ -39,12 +45,26 @@ let state = {
             },
             MessagesListData: {
                 messagesData: [
-                    {id: 1, message: 'Message 1'},
-                    {id: 2, message: 'Message 2'},
-                    {id: 3, message: 'Message 3'},
-                    {id: 4, message: 'Message 4'},
-                    {id: 5, message: 'Message 5'},
+                    {id: 1, message: 'Message 1'}
                 ]
+            },
+            SendMessageFormData: {
+                currentMessage: 'hardCode',
+                sendCurrentText: function sendCurrentText(a) {
+                    state.MainContentData.DialogsData.SendMessageFormData.currentMessage = a;
+                    reRender(state);
+                },
+                addMessage: function () {
+                    if (state.MainContentData.DialogsData.SendMessageFormData.currentMessage != 15) {
+                        let newMessage = {
+                            id: 5,
+                            message: state.MainContentData.DialogsData.SendMessageFormData.currentMessage
+                        };
+                        state.MainContentData.DialogsData.MessagesListData.messagesData.push(newMessage);
+                        state.MainContentData.DialogsData.SendMessageFormData.currentMessage = '';
+                        reRender(state);
+                    }
+                }
             }
         }
     },
@@ -56,6 +76,7 @@ let state = {
     },
 }
 
+window.state = state;
 
 export default state;
 

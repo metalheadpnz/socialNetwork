@@ -5,15 +5,19 @@ import s from "./AddPostForm.module.css";
 function AddPostForm(props) {
 
     let AddPost = () => {
-        props.AddPostFormData(newPostText.current.value);
-        newPostText.current.value = '';
+        props.AddPostFormData.addPost();
     }
+
     let newPostText = React.createRef();
+
+    function onTextAreaChange() {
+        props.AddPostFormData.addTextAreaChangeToState(newPostText.current.value)
+    }
 
     return (
         <div className={s.AddPostForm}>
             <div>
-                <textarea ref={newPostText} type="text"/>
+                <textarea value={props.AddPostFormData.textareaData} onChange={onTextAreaChange} ref={newPostText} type="text"/>
             </div>
             <div>
                 <button onClick={AddPost}>Add</button>
