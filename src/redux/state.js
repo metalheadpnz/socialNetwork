@@ -1,4 +1,5 @@
-import {reRender} from "../render";
+let reRender = () => {
+}
 
 function addPost() {
     if (state.MainContentData.ProfileData.AddPostFormData.textareaData != '') {
@@ -77,6 +78,10 @@ let state = {
 }
 
 window.state = state;
+
+export let subscribe = (observer) => {
+    reRender = observer;
+}
 
 export default state;
 
