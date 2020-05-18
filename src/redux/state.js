@@ -1,19 +1,17 @@
 import {reRender} from "../render";
 
-function addPost() {
-    if (state.MainContentData.ProfileData.AddPostFormData.textareaData != '') {
-        let newPost = {
-            id: 5,
-            message: state.MainContentData.ProfileData.AddPostFormData.textareaData,
-            likeCounter: 0
-        };
-        state.MainContentData.ProfileData.PostsListData.PostItemData.push(newPost);
-        state.MainContentData.ProfileData.AddPostFormData.textareaData = '';
-        reRender(state);
-    }
+export function addPost() {
+    let newPost = {
+        id: 5,
+        message: state.MainContentData.ProfileData.AddPostFormData.textareaData,
+        likeCounter: 0
+    };
+    state.MainContentData.ProfileData.PostsListData.PostItemData.push(newPost);
+    state.MainContentData.ProfileData.AddPostFormData.textareaData = '';
+    reRender(state);
 }
 
-function addTextAreaChangeToState(textValue) {
+export function addTextAreaChangeToState(textValue) {
     state.MainContentData.ProfileData.AddPostFormData.textareaData = textValue;
     reRender(state);
 }
@@ -28,9 +26,7 @@ let state = {
                 ]
             },
             AddPostFormData: {
-                addPost: addPost,
-                textareaData: '',
-                addTextAreaChangeToState: addTextAreaChangeToState
+                textareaData: 'начальное значение в state',
             }
         },
         DialogsData: {
@@ -47,24 +43,6 @@ let state = {
                 messagesData: [
                     {id: 1, message: 'Message 1'}
                 ]
-            },
-            SendMessageFormData: {
-                currentMessage: 'hardCode',
-                sendCurrentText: function sendCurrentText(a) {
-                    state.MainContentData.DialogsData.SendMessageFormData.currentMessage = a;
-                    reRender(state);
-                },
-                addMessage: function () {
-                    if (state.MainContentData.DialogsData.SendMessageFormData.currentMessage != 15) {
-                        let newMessage = {
-                            id: 5,
-                            message: state.MainContentData.DialogsData.SendMessageFormData.currentMessage
-                        };
-                        state.MainContentData.DialogsData.MessagesListData.messagesData.push(newMessage);
-                        state.MainContentData.DialogsData.SendMessageFormData.currentMessage = '';
-                        reRender(state);
-                    }
-                }
             }
         }
     },

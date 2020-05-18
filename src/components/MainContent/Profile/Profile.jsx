@@ -9,7 +9,7 @@ function Profile(props) {
     return (
         <div className={s.profile}>
             <ProfileInfo/>
-            <AddPostForm AddPostFormData={props.ProfileData.AddPostFormData}/>
+            <AddPostForm AddPostFormData={props.ProfileData.AddPostFormData} addPost={props.addPost} addTextAreaChangeToState={props.addTextAreaChangeToState}/>
             <PostsList PostsListData={props.ProfileData.PostsListData}/>
 
         </div>
