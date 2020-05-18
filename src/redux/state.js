@@ -1,21 +1,5 @@
-import {reRender} from "../render";
-
-export function addPost() {
-    let newPost = {
-        id: 5,
-        message: state.MainContentData.ProfileData.AddPostFormData.textareaData,
-        likeCounter: 0
-    };
-    state.MainContentData.ProfileData.PostsListData.PostItemData.push(newPost);
-    state.MainContentData.ProfileData.AddPostFormData.textareaData = '';
-    reRender(state);
+let reRender = () => {
 }
-
-export function addTextAreaChangeToState(textValue) {
-    state.MainContentData.ProfileData.AddPostFormData.textareaData = textValue;
-    reRender(state);
-}
-
 
 let state = {
     MainContentData: {
@@ -54,7 +38,29 @@ let state = {
     },
 }
 
+export function addPost() {
+    let newPost = {
+        id: 5,
+        message: state.MainContentData.ProfileData.AddPostFormData.textareaData,
+        likeCounter: 0
+    };
+    state.MainContentData.ProfileData.PostsListData.PostItemData.push(newPost);
+    state.MainContentData.ProfileData.AddPostFormData.textareaData = '';
+    reRender(state);
+}
+
+export function addTextAreaChangeToState(textValue) {
+    state.MainContentData.ProfileData.AddPostFormData.textareaData = textValue;
+    reRender(state);
+}
+
+
+
 window.state = state;
+
+export const subscribe = (observer) => {
+    reRender = observer;
+}
 
 export default state;
 
