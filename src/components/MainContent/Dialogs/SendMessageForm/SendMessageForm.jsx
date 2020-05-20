@@ -15,11 +15,10 @@ let SendMessageForm = (props) => {
 
     }
 
-    // let newText = React.createRef()
     return (
         <div className={s.SendMessageForm}>
             <textarea value={props.SendMessageFormData.newMessageText} onChange={updateNewMessage}
-                      />
+            />
             <button onClick={addNewMessage}>Send</button>
         </div>
     );
