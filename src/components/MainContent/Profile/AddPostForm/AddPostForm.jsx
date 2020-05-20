@@ -5,13 +5,13 @@ import s from "./AddPostForm.module.css";
 function AddPostForm(props) {
 
     let AddPost = () => {
-        props.addPost();
+        props.dispatch({type: 'ADD-POST'});
     }
 
     let newPostText = React.createRef();
 
     function onTextAreaChange() {
-        props.addTextAreaChangeToState(newPostText.current.value);
+        props.dispatch({type: 'UPDATE-TEXTAREA-DATA', textValue: newPostText.current.value})
     }
 
     return (

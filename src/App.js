@@ -17,7 +17,7 @@ function App(props) {
 
                 <Header/>
                 <SideBar SideBar={props.state.SideBarData}/>
-                <MainContent MainContentData={props.state.MainContentData} addPost={props.addPost} addTextAreaChangeToState={props.addTextAreaChangeToState}/>
+                <MainContent MainContentData={props.state.MainContentData} dispatch={props.dispatch}/>
                 <Footer/>
 
             </div>
