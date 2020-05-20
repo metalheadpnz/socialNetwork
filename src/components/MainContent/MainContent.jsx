@@ -14,7 +14,7 @@ function MainContent(props) {
             <Route path='/Profile'
                    render={() => <Profile ProfileData={props.MainContentData.ProfileData} dispatch={props.dispatch}/>}/>
             <Route path='/Dialogs'
-                   render={() => <Dialogs DialogsData={props.MainContentData.DialogsData}/>}/>
+                   render={() => <Dialogs DialogsData={props.MainContentData.DialogsData} dispatch={props.dispatch}/>}/>
             <Route path='/News' component={News}/>
             <Route path='/Music' component={Music}/>
             <Route path='/Settings' component={Settings}/>

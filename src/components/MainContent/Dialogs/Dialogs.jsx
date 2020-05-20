@@ -10,7 +10,7 @@ function Dialogs(props) {
         <div className={s.messages}>
             <DialogsList DialogsListData={props.DialogsData.DialogsListData}/>
             <MessagesList MessagesListData={props.DialogsData.MessagesListData}/>
-            <SendMessageForm/>
+            <SendMessageForm SendMessageFormData={props.DialogsData.SendMessageFormData} dispatch={props.dispatch}/>
         </div>
 
     );
