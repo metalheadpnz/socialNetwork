@@ -7,20 +7,19 @@ import {BrowserRouter} from "react-router-dom";
 import SideBar from "./components/SideBar/SideBar";
 
 
-
-
 function App(props) {
 
     return (
 
-            <div className="app-wraper">
+        <div className="app-wraper">
 
-                <Header/>
-                <SideBar SideBar={props.state.SideBar}/>
-                <MainContent Dialogs={props.state.Dialogs} Profile={props.state.Profile}dispatch={props.dispatch}/>
-                <Footer/>
+            <Header/>
+            <SideBar SideBar={props.state.SideBar}/>
+            {/*<MainContent Dialogs={props.state.Dialogs} Profile={props.state.Profile} dispatch={props.dispatch}/>*/}
+            <MainContent state={props.state} dispatch={props.dispatch}/>
+            <Footer/>
 
-            </div>
+        </div>
 
     );
 }
