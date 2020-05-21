@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./AddPostForm.module.css";
-import {addPostActionCreator, updateTextareaDataActionCreator} from "../../../../redux/state";
+import {addPostActionCreator, updateTextareaDataActionCreator} from "../../../../redux/ProfileReducer";
 
 
 function AddPostForm(props) {
