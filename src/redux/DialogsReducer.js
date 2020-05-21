@@ -1,7 +1,27 @@
 const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
 const ADD_MESSAGE = 'ADD-MESSAGE';
 
-const DialogsReducer = (state, action) => {
+let initialState = {
+    DialogsListData: {
+        usersDialogsData: [
+            {id: 1, userName: 'Vasyan'},
+            {id: 2, userName: 'Boryan'},
+            {id: 3, userName: 'Mixan'},
+            {id: 4, userName: 'Mixan'},
+            {id: 5, userName: 'Mixan'}
+        ]
+    },
+    MessagesListData: {
+        messagesData: [
+            {id: 1, message: 'Message 1'}
+        ]
+    },
+    SendMessageFormData: {
+        newMessageText: 'Значение из стейт'
+    }
+}
+
+const DialogsReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case UPDATE_NEW_MESSAGE:

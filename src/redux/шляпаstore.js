@@ -2,7 +2,6 @@ import ProfileReducer from "./ProfileReducer";
 import DialogsReducer from "./DialogsReducer";
 
 
-
 let store = {
     _state: {
         MainContentData: {
@@ -58,6 +57,7 @@ let store = {
         this._callSubscriber(this._state);
     }
 }
+console.log(store);
 
 export default store;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import store from './redux/store'
+import store from './redux/reduxStore'
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
@@ -20,6 +20,6 @@ let firstRender = (state) => {
 
 firstRender(store.getState());
 
-store.subscribe(firstRender);
+store.subscribe(() => firstRender(store.getState()));
 
 serviceWorker.unregister();

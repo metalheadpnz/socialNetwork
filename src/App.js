@@ -16,8 +16,8 @@ function App(props) {
             <div className="app-wraper">
 
                 <Header/>
-                <SideBar SideBar={props.state.SideBarData}/>
-                <MainContent MainContentData={props.state.MainContentData} dispatch={props.dispatch}/>
+                <SideBar SideBar={props.state.SideBar}/>
+                <MainContent Dialogs={props.state.Dialogs} Profile={props.state.Profile}dispatch={props.dispatch}/>
                 <Footer/>
 
             </div>

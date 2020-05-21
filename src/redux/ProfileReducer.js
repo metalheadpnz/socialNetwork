@@ -1,7 +1,18 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_TEXTAREA_DATA = 'UPDATE-TEXTAREA-DATA';
 
-const ProfileReducer = (state, action) => {
+let initialState={
+    PostsListData: {
+        PostItemData: [
+            {id: 1, message: 'First post', likeCounter: 15}
+        ]
+    },
+    AddPostFormData: {
+        textareaData: 'начальное значение в state',
+    }
+}
+
+const ProfileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_POST:
