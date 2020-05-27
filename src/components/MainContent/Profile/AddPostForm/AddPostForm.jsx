@@ -1,24 +1,22 @@
 import React from "react";
 import s from "./AddPostForm.module.css";
-import {addPostActionCreator, updateTextareaDataActionCreator} from "../../../../redux/ProfileReducer";
 
 
 function AddPostForm(props) {
 
     let AddPost = () => {
-        props.dispatch(addPostActionCreator());
+        props.AddPost();
     }
 
-    let newPostText = React.createRef();
 
-    function onTextAreaChange() {
-        props.dispatch(updateTextareaDataActionCreator(newPostText.current.value));
+    function updateTextareaData(event) {
+        props.updateTextareaData(event.target.value);
     }
 
     return (
         <div className={s.AddPostForm}>
             <div>
-                <textarea value={props.AddPostFormData.textareaData} onChange={onTextAreaChange} ref={newPostText}
+                <textarea value={props.textareaData} onChange={updateTextareaData}
                           type="text"/>
             </div>
             <div>

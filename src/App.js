@@ -16,7 +16,7 @@ function App(props) {
             <Header/>
             <SideBar SideBar={props.state.SideBar}/>
             {/*<MainContent Dialogs={props.state.Dialogs} Profile={props.state.Profile} dispatch={props.dispatch}/>*/}
-            <MainContent state={props.state} dispatch={props.dispatch}/>
+            <MainContent store={props.store} state={props.state} dispatch={props.dispatch}/>
             <Footer/>
 
         </div>

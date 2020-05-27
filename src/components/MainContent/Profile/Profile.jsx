@@ -1,16 +1,16 @@
 import React from 'react';
 import s from './Profile.module.css';
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
-import AddPostForm from "./AddPostForm/AddPostForm";
 import PostsList from "./PostsList/PostsList";
+import AddPostFormContainer from "./AddPostForm/AddPostFormContainer";
 
 function Profile(props) {
 
     return (
         <div className={s.profile}>
             <ProfileInfo/>
-            <AddPostForm AddPostFormData={props.ProfileData.AddPostFormData} dispatch={props.dispatch}/>
             <PostsList PostsListData={props.ProfileData.PostsListData}/>
+            <AddPostFormContainer store={props.store}/>
 
         </div>
     );
