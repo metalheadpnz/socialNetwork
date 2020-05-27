@@ -1,7 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_TEXTAREA_DATA = 'UPDATE-TEXTAREA-DATA';
 
-let initialState={
+let initialState = {
     PostsListData: {
         PostItemData: [
             {id: 1, message: 'First post', likeCounter: 15}
@@ -30,7 +30,8 @@ const ProfileReducer = (state = initialState, action) => {
             state.AddPostFormData.textareaData = action.textValue;
             return (state);
 
-        default:  return (state);
+        default:
+            return (state);
     }
 }
 
