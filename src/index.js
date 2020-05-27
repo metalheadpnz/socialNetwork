@@ -13,7 +13,7 @@ let firstRender = (state) => {
         <React.StrictMode>
             <BrowserRouter>
                 <Provider store={store}>
-                    <App store={store} state={state} dispatch={store.dispatch.bind(store)}/>
+                    <App store={store} state={state} />
                 </Provider>
             </BrowserRouter>
         </React.StrictMode>,

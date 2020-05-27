@@ -11,8 +11,7 @@ function Dialogs(props) {
         <div className={s.messages}>
             <DialogsList DialogsListData={props.DialogsData.DialogsListData}/>
             <MessagesList MessagesListData={props.DialogsData.MessagesListData}/>
-            {/*<SendMessageForm  SendMessageFormData={props.DialogsData.SendMessageFormData} dispatch={props.dispatch}/>*/}
-            <SendMessageFormContainer store={props.store}/>
+            <SendMessageFormContainer/>
         </div>
 
     );

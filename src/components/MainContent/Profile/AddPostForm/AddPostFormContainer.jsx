@@ -2,9 +2,8 @@ import React from "react";
 import {addPostActionCreator, updateTextareaDataActionCreator} from "../../../../redux/ProfileReducer";
 import AddPostForm from "./AddPostForm";
 import StoreContext from "../../../../StoreContext";
-//git
-function AddPostFormContainer(props) {
 
+function AddPostFormContainer(props) {
 
     return (
         <StoreContext.Consumer>

@@ -10,7 +10,7 @@ function Profile(props) {
         <div className={s.profile}>
             <ProfileInfo/>
             <PostsList PostsListData={props.ProfileData.PostsListData}/>
-            <AddPostFormContainer store={props.store}/>
+            <AddPostFormContainer/>
 
         </div>
     );

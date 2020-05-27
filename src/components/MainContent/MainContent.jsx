@@ -12,9 +12,9 @@ function MainContent(props) {
     return (
         <div className={s.mainContent}>
             <Route path='/Profile'
-                   render={() => <Profile store={props.store} ProfileData={props.state.Profile} dispatch={props.dispatch}/>}/>
+                   render={() => <Profile store={props.store} ProfileData={props.state.Profile}/>}/>
             <Route path='/Dialogs'
-                   render={() => <Dialogs store={props.store} DialogsData={props.state.Dialogs} dispatch={props.dispatch}/>}/>
+                   render={() => <Dialogs store={props.store} DialogsData={props.state.Dialogs}/>}/>
             <Route path='/News' component={News}/>
             <Route path='/Music' component={Music}/>
             <Route path='/Settings' component={Settings}/>
