@@ -8,22 +8,47 @@ import App from "./App";
 import {Provider} from "react-redux";
 
 
-let firstRender = (state) => {
+// let firstRender = (state) => {
+//
+//     ReactDOM.render(
+//         <React.StrictMode>
+//             <BrowserRouter>
+//                 <Provider store={store}>
+//                     <App/>
+//                 </Provider>
+//             </BrowserRouter>
+//         </React.StrictMode>,
+//         document.getElementById('root')
+//     );
+// }
+//
+// firstRender(store.getState());
+//
+// store.subscribe(() => firstRender(store.getState()));
 
-    ReactDOM.render(
-        <React.StrictMode>
-            <BrowserRouter>
-                <Provider store={store}>
-                    <App/>
-                </Provider>
-            </BrowserRouter>
-        </React.StrictMode>,
-        document.getElementById('root')
-    );
-}
 
-firstRender(store.getState());
+// ReactDOM.render(
+//     <React.StrictMode>
+//         <BrowserRouter>
+//             <Provider store={store}>
+//                 <App/>
+//             </Provider>
+//         </BrowserRouter>
+//     </React.StrictMode>,
+//     document.getElementById('root')
+// );
 
-store.subscribe(() => firstRender(store.getState()));
+
+ReactDOM.render(
+
+        <BrowserRouter>
+            <Provider store={store}>
+                <App/>
+            </Provider>
+        </BrowserRouter>,
+
+    document.getElementById('root')
+);
+
 
 serviceWorker.unregister();

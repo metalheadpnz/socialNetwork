@@ -14,11 +14,8 @@ function MainContent(props) {
             {/*<Route path='/Profile'*/}
             {/*       render={() => <Profile store={props.store} ProfileData={props.state.Profile}/>}/>*/}
 
-            <Route path='/Profile'
-                   render={() => <Profile/>}/>
-
-            <Route path='/Dialogs'
-                   render={() => <Dialogs/>}/>
+            <Route path='/Profile' render={() => <Profile/>}/>
+            <Route path='/Dialogs' render={() => <Dialogs/>}/>
             <Route path='/News' component={News}/>
             <Route path='/Music' component={Music}/>
             <Route path='/Settings' component={Settings}/>

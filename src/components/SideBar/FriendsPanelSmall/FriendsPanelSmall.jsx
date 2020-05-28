@@ -11,7 +11,7 @@ let FriendsPanelSmall = (props) => {
             {props.FriendsPanelSmall.map(m =>
                 <div className={s.FriendsPanelSmallItem}>
                     <NavLink activeClassName={s.active} to={`/Dialogs/${m.id}`}>
-                        <img src={url}/>
+                        <img src={url} alt=''/>
                         <div>{m.userName}</div>
                     </NavLink>
                 </div>
