@@ -4,7 +4,7 @@ import PostItem from "./PostItem/PostItem";
 
 function PostsList(props) {
 
-    let postsDataArr = props.PostsListData.PostItemData.map
+    let postsDataArr = props.postItemData.map
     (m => <PostItem PostItemData={m}/>);
 
     return (

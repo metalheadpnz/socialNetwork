@@ -2,14 +2,11 @@ const ADD_POST = 'ADD-POST';
 const UPDATE_TEXTAREA_DATA = 'UPDATE-TEXTAREA-DATA';
 
 let initialState = {
-    PostsListData: {
-        PostItemData: [
-            {id: 1, message: 'First post', likeCounter: 15}
-        ]
-    },
-    AddPostFormData: {
-        textareaData: 'начальное значение в state',
-    }
+    postItemData: [
+        {id: 1, message: 'First post', likeCounter: 15}
+    ],
+    newPostText: 'начальное значение в state',
+
 }
 
 const ProfileReducer = (state = initialState, action) => {
@@ -18,25 +15,20 @@ const ProfileReducer = (state = initialState, action) => {
         case ADD_POST: {
             let newPost = {
                 id: 5,
-                message: state.AddPostFormData.textareaData,
+                message: state.newPostText,
                 likeCounter: 0
             };
 
             let stateCopy = {...state};
-            stateCopy.PostsListData = {...state.PostsListData};
-            stateCopy.PostsListData.PostItemData = [...state.PostsListData.PostItemData]
-            stateCopy.PostsListData.PostItemData.push(newPost);
-
-            stateCopy.AddPostFormData = {...state.AddPostFormData}
-            stateCopy.AddPostFormData.textareaData = '';
+            stateCopy.postItemData = [...state.postItemData]
+            stateCopy.postItemData.push(newPost);
+            stateCopy.newPostText = '';
             return (stateCopy);
         }
 
         case UPDATE_TEXTAREA_DATA: {
             let stateCopy = {...state};
-
-            stateCopy.AddPostFormData = {...state.AddPostFormData}
-            stateCopy.AddPostFormData.textareaData = action.textValue;
+            stateCopy.newPostText = action.textValue;
             return (stateCopy);
         }
         default:

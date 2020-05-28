@@ -8,7 +8,6 @@ function AddPostForm(props) {
         props.AddPost();
     }
 
-
     function updateTextareaData(event) {
         props.updateTextareaData(event.target.value);
     }
@@ -16,7 +15,7 @@ function AddPostForm(props) {
     return (
         <div className={s.AddPostForm}>
             <div>
-                <textarea value={props.textareaData} onChange={updateTextareaData}
+                <textarea value={props.newPostText} onChange={updateTextareaData}
                           type="text"/>
             </div>
             <div>

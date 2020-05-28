@@ -11,9 +11,6 @@ function MainContent(props) {
 
     return (
         <div className={s.mainContent}>
-            {/*<Route path='/Profile'*/}
-            {/*       render={() => <Profile store={props.store} ProfileData={props.state.Profile}/>}/>*/}
-
             <Route path='/Profile' render={() => <Profile/>}/>
             <Route path='/Dialogs' render={() => <Dialogs/>}/>
             <Route path='/News' component={News}/>

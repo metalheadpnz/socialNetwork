@@ -29,7 +29,7 @@ import {connect} from "react-redux";
 // }
 
 let mapStateToProps = (state) => {
-    return {newMessageText: state.Dialogs.SendMessageFormData.newMessageText}
+    return {newMessageText: state.Dialogs.newMessageText}
 }
 
 let mapDispatchToProps = (dispatch) => {

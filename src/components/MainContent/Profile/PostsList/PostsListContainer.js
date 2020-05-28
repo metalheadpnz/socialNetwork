@@ -5,10 +5,10 @@ import PostsList from "./PostsList";
 let mapStateToProps = (state) => {
 
     return {
-        PostsListData: state.Profile.PostsListData
+        postItemData: state.Profile.postItemData
     }
 }
 
-let PostsListContainer = connect (mapStateToProps)(PostsList);
+let PostsListContainer = connect(mapStateToProps)(PostsList);
 
 export default PostsListContainer;
