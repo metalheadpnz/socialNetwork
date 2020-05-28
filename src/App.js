@@ -13,8 +13,8 @@ function App(props) {
         <div className="app-wraper">
 
             <Header/>
-            <SideBar SideBar={props.state.SideBar}/>
-            <MainContent store={props.store} state={props.state} />
+            <SideBar/>
+            <MainContent/>
             <Footer/>
 
         </div>

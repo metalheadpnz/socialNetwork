@@ -5,7 +5,8 @@ import store from './redux/Store'
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
-import {Provider} from "./StoreContext";
+import {Provider} from "react-redux";
+
 
 let firstRender = (state) => {
 
@@ -13,7 +14,7 @@ let firstRender = (state) => {
         <React.StrictMode>
             <BrowserRouter>
                 <Provider store={store}>
-                    <App store={store} state={state} />
+                    <App/>
                 </Provider>
             </BrowserRouter>
         </React.StrictMode>,
