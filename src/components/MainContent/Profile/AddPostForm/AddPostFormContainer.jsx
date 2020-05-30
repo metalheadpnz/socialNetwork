@@ -1,4 +1,4 @@
-import React from "react";
+
 import {addPostActionCreator, updateTextareaDataActionCreator} from "../../../../redux/ProfileReducer";
 import AddPostForm from "./AddPostForm";
 import {connect} from "react-redux";

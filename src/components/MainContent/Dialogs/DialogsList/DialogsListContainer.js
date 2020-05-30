@@ -1,4 +1,4 @@
-import React from "react";
+
 import DialogsList from "./DialogsList";
 import {connect} from "react-redux";
 

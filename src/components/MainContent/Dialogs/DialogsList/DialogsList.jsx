@@ -7,7 +7,7 @@ function DialogsList(props) {
     return (
         <div>
             {props.usersDialogs.map(arr =>
-                <div><NavLink activeClassName={s.active} className={s.dialogList}
+                <div key={arr.id}><NavLink activeClassName={s.active} className={s.dialogList}
                               to={`/Dialogs/${arr.id}`}>{arr.userName}</NavLink>
                 </div>)}
         </div>

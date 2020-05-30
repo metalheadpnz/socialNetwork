@@ -6,7 +6,7 @@ function ProfileInfo(props) {
     return (
         <div className={s.profileInfo}>
             <div>
-                <img src={mainContentPic}/>
+                <img src={mainContentPic} alt=''   />
             </div>
             <div className={s.ava}>
                 Avatar + description
