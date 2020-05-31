@@ -1,0 +1,21 @@
+.user {
+    margin-left: 20px;
+    margin-top: 20px;
+    border: 1px dashed lightcoral;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    width: 190px;
+    display: inline-block;
+}
+
+.img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.location {
+    text-align: right;
+    margin-right: 20px;
+}

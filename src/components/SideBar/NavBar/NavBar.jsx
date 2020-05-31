@@ -12,6 +12,9 @@ function NavBar() {
                 <NavLink to="/Dialogs" activeClassName={s.active}>Dialogs</NavLink>
             </div>
             <div>
+                <NavLink to="/Users" activeClassName={s.active}>Users</NavLink>
+            </div>
+            <div>
                 <NavLink to="/News" activeClassName={s.active}>News</NavLink>
             </div>
             <div>
