@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Users.module.css";
 import * as axios from 'axios';
+import defaultUserPic from './../../../img/defaultUserPic.png';
 
 function Users(props) {
 
@@ -42,7 +43,6 @@ function Users(props) {
         // ]);
 
 
-
         axios.get("https://social-network.samuraijs.com/api/1.0/users")
             .then(response => props.setUsers(response.data.items))
     }
@@ -53,7 +53,9 @@ function Users(props) {
                 "location.country", "location.city"
             </div>
             <div>
-                <img className={styles.img} src={u.photos.small} alt=""/>
+                <img className={styles.img}
+                     src={u.photos.small == null ? defaultUserPic : u.photos.small}
+                     alt=""/>
             </div>
             <div>
                 {u.name}
