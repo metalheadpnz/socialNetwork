@@ -18,7 +18,6 @@ const UsersReducer = (state = initialState, action) => {
 
                         return {...u, followed: true}
                     }
-
                     return u;
                 })
             }
