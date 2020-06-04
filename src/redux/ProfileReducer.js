@@ -13,17 +13,23 @@ const ProfileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_POST:
-            return {
-                ...state, postItemData: [...state.postItemData, {
-                    id: 5,
-                    message: state.newPostText,
-                    likeCounter: 0
-                }], newPostText: ''}
+            if (state.newPostText !== '' && state.newPostText !== undefined)
+                return {
+                    ...state, postItemData: [...state.postItemData, {
+                        id: 5,
+                        message: state.newPostText,
+                        likeCounter: 0
+                    }], newPostText: ''
+                }
+            else  return (state);
+
+
 
         case UPDATE_TEXTAREA_DATA:
             return {
                 ...state, newPostText: action.textValue
             };
+
 
         default:
             return (state);
