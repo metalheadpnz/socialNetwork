@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import Users from "./Users";
-import {changePagesAC, followAC, setCurrentPageAC, setUsersAC, unfollowAC} from "../../../redux/UsersReducer";
+import {changePages, follow, setCurrentPage, setUsers, unfollow} from "../../../redux/UsersReducer";
 import * as axios from "axios";
 
 
@@ -49,16 +49,11 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => dispatch(followAC(userId)),
-        unfollow: (userId) => dispatch(unfollowAC(userId)),
-        setUsers: (users, totalUsersCount) => dispatch(setUsersAC(users, totalUsersCount)),
-        setCurrentPage: (currentPage) => dispatch(setCurrentPageAC(currentPage)),
-        changePages: () => dispatch(changePagesAC())
 
-    }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    changePages
+})(UsersContainer);

@@ -87,11 +87,11 @@ const UsersReducer = (state = initialState, action) => {
     }
 }
 
-export const followAC = (userId) => ({type: FOLLOW, userId});
-export const unfollowAC = (userId) => ({type: UNFOLLOW, userId});
-export const setUsersAC = (users, totalUsersCount) => ({type: SET_USERS, users, totalUsersCount});
-export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
-export const changePagesAC = () => ({type: CHANGE_PAGES})
+export const follow = (userId) => ({type: FOLLOW, userId});
+export const unfollow = (userId) => ({type: UNFOLLOW, userId});
+export const setUsers = (users, totalUsersCount) => ({type: SET_USERS, users, totalUsersCount});
+export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
+export const changePages = () => ({type: CHANGE_PAGES})
 
 
 export default UsersReducer;
