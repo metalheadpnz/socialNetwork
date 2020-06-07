@@ -1,13 +1,13 @@
-
 import DialogsList from "./DialogsList";
 import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {
+    
     return {
-        usersDialogs: state.Dialogs.usersDialogs
+        usersDialogs: state.DialogsPage.usersDialogs
     }
 }
 
-let DialogsListContainer = connect (mapStateToProps)(DialogsList)
+let DialogsListContainer = connect(mapStateToProps)(DialogsList)
 
 export default DialogsListContainer;

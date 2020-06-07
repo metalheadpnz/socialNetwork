@@ -4,7 +4,7 @@ import MessagesList from "./MessagesList";
 
 let mapStateToProps = (state) => {
     return {
-        messagesData: state.Dialogs.messagesData
+        messagesData: state.DialogsPage.messagesData
     }
 }
 

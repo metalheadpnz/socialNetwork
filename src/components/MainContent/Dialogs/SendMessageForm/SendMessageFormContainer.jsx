@@ -19,7 +19,7 @@ import {connect} from "react-redux";
 //                         store.dispatch(addNewMessageActionCreator());
 //                     }
 //                     return (
-//                         <SendMessageForm newMessageText={state.Dialogs.SendMessageFormData.newMessageText}
+//                         <SendMessageForm newMessageText={state.DialogsPage.SendMessageFormData.newMessageText}
 //                                          updateNewMessage={updateNewMessage}
 //                                          addNewMessage={addNewMessage}/>)
 //                 }
@@ -29,7 +29,7 @@ import {connect} from "react-redux";
 // }
 
 let mapStateToProps = (state) => {
-    return {newMessageText: state.Dialogs.newMessageText}
+    return {newMessageText: state.DialogsPage.newMessageText}
 }
 
 let mapDispatchToProps = (dispatch) => {
