@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Users.module.css";
 import defaultUserPic from './../../../img/defaultUserPic.png';
+import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
 
@@ -12,11 +13,11 @@ let Users = (props) => {
         for (let i = 1; i < (props.pages.length - 1); i++) {
             compareArr.push(props.pages[i])
         }
-        if (!(compareArr.includes(pageNumber)) && pageNumber != 1) {
+        if (!(compareArr.includes(pageNumber)) && pageNumber !== 1) {
             props.changePages();
         }
 
-        props.onPageChanged (pageNumber);
+        props.onPageChanged(pageNumber);
 
     }
 
@@ -36,9 +37,11 @@ let Users = (props) => {
                     "location.country", "location.city"
                 </div>
                 <div>
-                    <img className={styles.img}
-                         src={u.photos.small == null ? defaultUserPic : u.photos.small}
-                         alt=""/>
+                    <NavLink to={`/Profile/${u.id}`}>
+                        <img className={styles.img}
+                             src={u.photos.small == null ? defaultUserPic : u.photos.small}
+                             alt=""/>
+                    </NavLink>
                 </div>
                 <div>
                     {u.name}

@@ -1,12 +1,12 @@
 import React from "react";
-import mainContentPic from "../../../../img/mainContentPic01.jpg";
 import s from './ProfileInfo.module.css';
 
 function ProfileInfo(props) {
+console.log(props.profileInfo.photos)
     return (
         <div className={s.profileInfo}>
             <div>
-                <img src={mainContentPic} alt=''   />
+                <img src={props.profileInfo.photos.large} alt=''   />
             </div>
             <div className={s.ava}>
                 Avatar + description

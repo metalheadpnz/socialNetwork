@@ -1,14 +1,14 @@
 import React from 'react';
-import s from './Profile.module.css';
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import style from './Profile.module.css';
 import AddPostFormContainer from "./AddPostForm/AddPostFormContainer";
 import PostsListContainer from "./PostsList/PostsListContainer";
+import ProfileInfoContainer from "./ProfileInfo/ProfileInfoContainer";
 
 function Profile(props) {
 
     return (
-        <div className={s.profile}>
-            <ProfileInfo/>
+        <div className={style.profile}>
+            <ProfileInfoContainer/>
             <AddPostFormContainer/>
             <PostsListContainer/>
         </div>

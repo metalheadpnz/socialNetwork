@@ -5,8 +5,6 @@ import {changePages, follow, setCurrentPage, setUsers, toggleIsFetching, unfollo
 import * as axios from "axios";
 import Preloader from "../../common/Preloader";
 
-
-
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsFetching(true);
@@ -27,8 +25,6 @@ class UsersContainer extends React.Component {
                 this.props.toggleIsFetching(false);
             });
     }
-
-
 
     render() {
         return <>
@@ -51,7 +47,6 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-
     return {
         users: state.UsersPage.users,
         totalUsersCount: state.UsersPage.totalUsersCount,
@@ -62,7 +57,6 @@ let mapStateToProps = (state) => {
 
     }
 }
-
 
 export default connect(mapStateToProps, {
     follow,
