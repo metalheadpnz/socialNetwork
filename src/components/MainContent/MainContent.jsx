@@ -13,7 +13,7 @@ function MainContent(props) {
 
     return (
         <div className={s.mainContent}>
-            <Route path='/Profile' render={() => <Profile/>}/>
+            <Route path='/Profile/:userId?' render={() => <Profile/>}/>
             <Route path='/Dialogs' render={() => <Dialogs/>}/>
             <Route path='/Users' render={() => <UsersContainer/>}/>
             <Route path='/News' component={News}/>

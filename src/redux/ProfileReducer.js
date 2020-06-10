@@ -2,12 +2,14 @@ const ADD_POST = 'ADD-POST';
 const UPDATE_TEXTAREA_DATA = 'UPDATE-TEXTAREA-DATA';
 const SET_PROFILE_INFO = 'SET_PROFILE_INFO';
 
+
 let initialState = {
     postItemData: [
         {id: 1, message: 'First post', likeCounter: 15}
     ],
     newPostText: 'начальное значение в state',
-    profileInfo: null
+    profileInfo: null,
+    defaultUserPic: "https://lh3.googleusercontent.com/hGZFkUDTRPrnUJM8xhN8tk23gPQqFHWreNlLFK0aksEMUe8Y5Z8Jl01Nl2q6sWo4ji-CdQ=s92"
 
 }
 

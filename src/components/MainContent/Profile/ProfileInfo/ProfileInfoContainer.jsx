@@ -4,23 +4,27 @@ import {connect} from "react-redux";
 import * as axios from "axios";
 import {SetProfileInfo} from "../../../../redux/ProfileReducer";
 import Preloader from "../../../common/Preloader";
+import {withRouter} from "react-router-dom";
 
 
 class ProfileInfoContainer extends React.Component {
 
     componentDidMount() {
-        // this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+        let userId = this.props.match.params.userId;
+        if (!userId) {
+            userId = 2;
+        }
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
             .then(response => {
-                // this.props.setUsers(response.data.items, response.data.totalCount);
-                // this.props.toggleIsFetching(false);
                 this.props.SetProfileInfo(response.data);
+
             });
+
     }
 
     render() {
         return (<div>
-                {(!this.props.profileInfo) ? <Preloader/> : <ProfileInfo profileInfo={this.props.profileInfo}/>}
+                {(!this.props.profileInfo) ? <Preloader/> : <ProfileInfo profileInfo={this.props.profileInfo} defaultUserPic={this.props.defaultUserPic}/>}
             </div>
         )
     }
@@ -28,8 +32,11 @@ class ProfileInfoContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        profileInfo: state.Profile.profileInfo
+        profileInfo: state.Profile.profileInfo,
+        defaultUserPic: state.Profile.defaultUserPic
     }
 }
 
-export default connect(mapStateToProps, {SetProfileInfo})(ProfileInfoContainer)
+let withRouterProfileInfoContainer = withRouter(ProfileInfoContainer);
+
+export default connect(mapStateToProps, {SetProfileInfo})(withRouterProfileInfoContainer)
