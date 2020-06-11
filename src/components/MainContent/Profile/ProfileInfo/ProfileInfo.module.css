@@ -1,4 +1,6 @@
 .profileInfo{
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 /*.profileInfo img{*/
@@ -7,5 +9,6 @@
 /*}*/
 
 .ava{
-    margin-left: 20px;
+    /*margin-left: 20px;*/
+    width: 150px;
 }

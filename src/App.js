@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import MainContent from "./components/MainContent/MainContent";
 import SideBar from "./components/SideBar/SideBar";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 
 function App(props) {
@@ -12,7 +12,7 @@ function App(props) {
 
         <div className="app-wraper">
 
-            <Header/>
+            <HeaderContainer/>
             <SideBar/>
             <MainContent/>
             <Footer/>

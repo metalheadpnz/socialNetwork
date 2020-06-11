@@ -1,10 +1,13 @@
 import React from 'react';
 import s from './Header.module.css'
+import Preloader from "../common/Preloader";
 
-function Header() {
+function Header(props) {
     return (
         <header className={s.header}>
-            header
+            <div>{props.id}</div>
+            <div>{props.email}</div>
+            <div>{props.login}</div>
         </header>
     );
 }
