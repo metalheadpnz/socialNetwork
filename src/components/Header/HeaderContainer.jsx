@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import {connect} from "react-redux";
-import {setAuthData} from "../../redux/AuthReduce";
+import {setAuthData} from "../../redux/AuthReducer";
 import * as axios from "axios";
 import {toggleIsFetching} from "../../redux/UsersReducer";
 
@@ -22,7 +22,8 @@ class HeaderContainer extends React.Component {
     render() {
         return <Header id={this.props.id}
                        email={this.props.email}
-                       login={this.props.login}/>
+                       login={this.props.login}
+                       isAuth={this.props.isAuth}/>
     }
 }
 
@@ -30,7 +31,8 @@ let mapStateToProps = (state) => {
     return {
         id: state.AuthReducer.id,
         email: state.AuthReducer.email,
-        login: state.AuthReducer.login
+        login: state.AuthReducer.login,
+        isAuth: state.AuthReducer.isAuth
     }
 }
 

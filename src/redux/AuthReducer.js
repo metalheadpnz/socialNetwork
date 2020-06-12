@@ -3,7 +3,8 @@ let SET_AUTH_DATA = "SET_AUTH_DATA";
 let initialState = {
     id: null,
     email: null,
-    login: null
+    login: null,
+    isAuth: false
 }
 
 const AuthReducer = (state = initialState, action) => {
@@ -11,7 +12,7 @@ const AuthReducer = (state = initialState, action) => {
         case SET_AUTH_DATA:
             return {
                 ...state,
-                id: action.id, email: action.email, login: action.login
+                id: action.id, email: action.email, login: action.login, isAuth: true
             }
         default:
             return state;
