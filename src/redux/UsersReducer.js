@@ -4,6 +4,7 @@ const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const CHANGE_PAGES = 'CHANGE_PAGES';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const TOGGLE_FOLLOWING_PROCESS = 'TOGGLE_FOLLOWING_PROCESS';
 
 let initialState = {
     users: [],
@@ -11,7 +12,8 @@ let initialState = {
     usersOnPageCount: 12,
     currentPage: 1,
     pages: [],
-    isFetching: true
+    isFetching: true,
+    followingInProcess: []
 
 }
 
@@ -45,6 +47,7 @@ const UsersReducer = (state = initialState, action) => {
             }
 
         case SET_USERS:
+
             return {
                 ...state,
                 users: [...action.users],
@@ -63,9 +66,9 @@ const UsersReducer = (state = initialState, action) => {
             } else {
 
                 for (let i = (state.currentPage) - 5; i <= (state.currentPage) + 5; i++) {
-                   if ((arr[arr.length-1])>=(Math.ceil(state.totalUsersCount / state.usersOnPageCount))) {
-                       break;
-                   }
+                    if ((arr[arr.length - 1]) >= (Math.ceil(state.totalUsersCount / state.usersOnPageCount))) {
+                        break;
+                    }
                     arr.push(i);
 
                 }
@@ -90,6 +93,14 @@ const UsersReducer = (state = initialState, action) => {
                 isFetching: action.isFetching
             }
 
+        case TOGGLE_FOLLOWING_PROCESS:
+
+            return {
+                ...state,
+                followingInProcess: action.isFetching
+                    ? [...state.followingInProcess, action.userId]
+                    : state.followingInProcess.filter(id => id !== action.userId)
+            }
 
 
         default:
@@ -101,8 +112,9 @@ export const follow = (userId) => ({type: FOLLOW, userId});
 export const unfollow = (userId) => ({type: UNFOLLOW, userId});
 export const setUsers = (users, totalUsersCount) => ({type: SET_USERS, users, totalUsersCount});
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
-export const changePages = () => ({type: CHANGE_PAGES})
-export const toggleIsFetching = (isFetching) => ({type:TOGGLE_IS_FETCHING, isFetching})
+export const changePages = () => ({type: CHANGE_PAGES});
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
+export const toggleFollowingProcess = (isFetching, userId) => ({type: TOGGLE_FOLLOWING_PROCESS, isFetching, userId})
 
 
 export default UsersReducer;

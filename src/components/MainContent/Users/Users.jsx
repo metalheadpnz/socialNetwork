@@ -1,11 +1,9 @@
 import React from "react";
 import styles from "./Users.module.css";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
 import {usersAPI} from "../../../api/api";
 
 let Users = (props) => {
-
 
     let pagination = (pageNumber) => {
         props.setCurrentPage(pageNumber);
@@ -35,7 +33,7 @@ let Users = (props) => {
         {props.users.map(u =>
             <div className={styles.user} key={u.id}>
                 <div className={styles.location}>
-                    "location.country", "location.city"
+                    "id={u.id}", {u.followed ? "подписан" : "НЕТ"}
                 </div>
                 <div>
                     <NavLink to={`/Profile/${u.id}`}>
@@ -52,30 +50,40 @@ let Users = (props) => {
                     {u.status}
                 </div>
                 {u.followed
-                    ? <button onClick={
+                    ? <button disabled={props.followingInProcess.includes(u.id)} onClick={
 
-                        () =>usersAPI.unfollow(u.id)
-                            .then(response => {
-                                if (response.data.resultCode === 0) {
-                                    props.unfollow(u.id)
-                                }
-                            })
+                        () => {
+                            props.toggleFollowingProcess(true, u.id);
+                            // console.log(props.followingInProcess.includes(u.id));
+                            usersAPI.unfollow(u.id)
+                                .then(response => {
+                                    if (response.data.resultCode === 0) {
+                                        props.unfollow(u.id)
+                                    }
+                                    props.toggleFollowingProcess(false, u.id);
+                                })
+                        }
                     }
                               className={styles.button}>Unfollow
                     </button>
 
 
-                    : <button onClick={
+                    : <button disabled={props.followingInProcess.includes(u.id)} onClick={
 
-                        () =>
+                        () => {
+                            props.toggleFollowingProcess(true, u.id);
+
                             usersAPI.follow(u.id)
-                            // axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, null,
-                            // {withCredentials: true, headers: {'API-KEY': '79d0b5ff-d44c-4805-98f4-b6b4db11789b'}})
-                            .then(response => {
-                                if (response.data.resultCode === 0) {
-                                    props.follow(u.id)
-                                }
-                            })
+                                // axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, null,
+                                // {withCredentials: true, headers: {'API-KEY': '79d0b5ff-d44c-4805-98f4-b6b4db11789b'}})
+                                .then(response => {
+                                    if (response.data.resultCode === 0) {
+                                        props.follow(u.id)
+                                    }
+                                    props.toggleFollowingProcess(false, u.id);
+                                })
+
+                        }
                     }
                               className={styles.button}>
                         Follow
