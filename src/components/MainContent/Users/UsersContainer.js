@@ -16,32 +16,32 @@ import {usersAPI} from "../../../api/api";
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsFetching(true);
-        usersAPI.getUsers(this.props.usersOnPageCount, this.props.currentPage)
+        usersAPI.getUsers(this.props.pagination.usersOnPageCount, this.props.pagination.currentPage)
             .then(data => {
+
                 this.props.setUsers(data.items, data.totalCount);
                 this.props.toggleIsFetching(false);
+                this.props.changePages();//пагинация
             });
-        this.props.changePages();//пагинация
+
 
     }
 
-    onPageChanged = (pageNumber) => {
+    onPageChanged = (pageNumber = this.props.pagination.currentPage) => {
         this.props.toggleIsFetching(true);
-        usersAPI.getUsers(this.props.usersOnPageCount, pageNumber)
+        usersAPI.getUsers(this.props.pagination.usersOnPageCount, pageNumber)
             .then(data => {
                 this.props.setUsers(data.items, data.totalCount);
                 this.props.toggleIsFetching(false);
             });
+
     }
 
     render() {
         return <>
             {this.props.isFetching && <Preloader/>}
             <Users users={this.props.users}
-                   totalUsersCount={this.props.totalUsersCount}
-                   usersOnPageCount={this.props.usersOnPageCount}
-                   currentPage={this.props.currentPage}
-                   pages={this.props.pages}
+                   pagination={this.props.pagination}
                    follow={this.props.follow}
                    unfollow={this.props.unfollow}
                    onPageChanged={this.onPageChanged}
@@ -58,10 +58,7 @@ class UsersContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         users: state.UsersPage.users,
-        totalUsersCount: state.UsersPage.totalUsersCount,
-        usersOnPageCount: state.UsersPage.usersOnPageCount,
-        currentPage: state.UsersPage.currentPage,
-        pages: state.UsersPage.pages,
+        pagination: state.UsersPage.pagination,
         isFetching: state.UsersPage.isFetching,
         followingInProcess: state.UsersPage.followingInProcess
 

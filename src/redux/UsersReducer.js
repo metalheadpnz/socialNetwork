@@ -8,10 +8,15 @@ const TOGGLE_FOLLOWING_PROCESS = 'TOGGLE_FOLLOWING_PROCESS';
 
 let initialState = {
     users: [],
-    totalUsersCount: 0,
-    usersOnPageCount: 15,
-    currentPage: 1,
-    pages: [],
+    pagination: {
+        totalUsersCount: null,
+        usersOnPageCount: 15,
+        currentPage: 1,
+        pagesOnPagination: [],
+        totalPagesCount: 1,
+        shiftUp: false,
+        shiftDown: false
+    },
     isFetching: true,
     followingInProcess: []
 
@@ -47,38 +52,48 @@ const UsersReducer = (state = initialState, action) => {
             }
 
         case SET_USERS:
-
+            let totalPages = Math.ceil(action.totalUsersCount / state.pagination.usersOnPageCount)
             return {
                 ...state,
                 users: [...action.users],
-                totalUsersCount: action.totalUsersCount
+                pagination: {
+                    ...state.pagination,
+                    totalUsersCount: action.totalUsersCount,
+                    totalPagesCount: totalPages
+                }
             }
 
         case CHANGE_PAGES:
-            // отвечает за количество отображаемых страниц
-            let arr = [];
-            if (state.currentPage < 6) {
-                for (let i = 1; i <= 10; i++) {
-                    arr.push(i);
-                }
-            } else {
-                for (let i = (state.currentPage) - 5; i <= (state.currentPage) + 5; i++) {
-                    if ((arr[arr.length - 1]) >= (Math.ceil(state.totalUsersCount / state.usersOnPageCount))) {
-                        break;
-                    }
-                    arr.push(i);
-                }
+            if (action.shift === "+10") {
+                state.pagination.currentPage = ((Math.floor(state.pagination.currentPage / 10) + 1) * 10) + 1;
             }
+            if (action.shift === "-10") {
+                state.pagination.currentPage = ((Math.floor(state.pagination.currentPage / 10) - 1) * 10) + 1;
+            }
+            let shiftUp = true;
+            let shiftDown = (state.pagination.currentPage < 10 ? false : true);
+
+            let arr = [];
+            for (let i = state.pagination.currentPage; i < ((state.pagination.currentPage) + 10); i++) {
+
+                if (i > state.pagination.totalPagesCount) {
+                    shiftUp = false;
+                    break
+                }
+                arr.push(i);
+            }
+
             return {
                 ...state,
-                pages: [...arr]
+                pagination: {...state.pagination, pagesOnPagination: [...arr], shiftUp: shiftUp, shiftDown: shiftDown}
             }
+
 
         case SET_CURRENT_PAGE:
 
             return {
                 ...state,
-                currentPage: action.currentPage
+                pagination: {...state.pagination, currentPage: action.currentPage}
             }
 
         case TOGGLE_IS_FETCHING:
@@ -106,7 +121,7 @@ export const follow = (userId) => ({type: FOLLOW, userId});
 export const unfollow = (userId) => ({type: UNFOLLOW, userId});
 export const setUsers = (users, totalUsersCount) => ({type: SET_USERS, users, totalUsersCount});
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
-export const changePages = () => ({type: CHANGE_PAGES});
+export const changePages = (shift) => ({type: CHANGE_PAGES, shift});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export const toggleFollowingProcess = (isFetching, userId) => ({type: TOGGLE_FOLLOWING_PROCESS, isFetching, userId})
 

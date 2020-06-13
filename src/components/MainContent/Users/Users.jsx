@@ -4,41 +4,24 @@ import {NavLink} from "react-router-dom";
 import {usersAPI} from "../../../api/api";
 
 let Users = (props) => {
-
-    let pagination = (pageNumber) => {
-        props.setCurrentPage(pageNumber);
-
-        let compareArr = [];
-        for (let i = 1; i < (props.pages.length - 1); i++) {
-            compareArr.push(props.pages[i])
-        }
-        if (!(compareArr.includes(pageNumber)) && pageNumber !== 1) {
-            props.changePages();
-        }
-
-        props.onPageChanged(pageNumber);
-
-    }
-
     return <div>
 
         <div className={styles.pagination}>
-            {(props.pages[0] > 1) && '...'}
-            {props.pages.map(pageNumber =>
-                <div
-                    className={props.currentPage === pageNumber ? styles.currentPage : 'notCurrentPage'}
-                    onClick={() => pagination(pageNumber)} key={pageNumber}>{pageNumber}
-                </div>)}
-            {(props.pages[props.pages.length - 1]) < (Math.ceil(props.totalUsersCount / props.usersOnPageCount)) && '...'}
-        </div>
+            {(props.pagination.shiftDown)&&<div onClick={()=> {props.changePages("-10"); props.onPageChanged()}}>. . .</div>}
+            {props.pagination.pagesOnPagination.map(page =>
+                <div className={props.pagination.currentPage === page ? styles.currentPage : 'notCurrentPage'}
+                     onClick={() => {
+                         props.setCurrentPage(page);
+                         props.onPageChanged(page);
 
-        {/*<div className={styles.pagination}>*/}
-        {/*    pagination*/}
-        {/*</div>*/}
+                     }} key={page}>{page}
+                </div>)}
+            {(props.pagination.shiftUp)&&<div onClick={() => {props.changePages("+10"); props.onPageChanged()}}>. . .</div>}
+        </div>
 
         {props.users.map(u =>
             <div className={styles.user} key={u.id}>
-                <div className={styles.location}>
+                <div>
                     "id={u.id}", {u.followed ? "подписан" : "НЕТ"}
                 </div>
                 <div>
