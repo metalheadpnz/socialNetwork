@@ -8,12 +8,13 @@ import Preloader from "../../common/Preloader";
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersOnPageCount}&page=${this.props.currentPage}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersOnPageCount}&page=${this.props.currentPage}`,
+            {withCredentials: true})
             .then(response => {
                 this.props.setUsers(response.data.items, response.data.totalCount);
                 this.props.toggleIsFetching(false);
             });
-        this.props.changePages();
+        this.props.changePages();//пагинация
 
     }
 
@@ -30,18 +31,18 @@ class UsersContainer extends React.Component {
         return <>
             {this.props.isFetching && <Preloader/>}
             {/*{this.props.isFetching && <div>333</div>}*/}
-        <Users users={this.props.users}
-                      totalUsersCount={this.props.totalUsersCount}
-                      usersOnPageCount={this.props.usersOnPageCount}
-                      currentPage={this.props.currentPage}
-                      pages={this.props.pages}
-                      follow={this.props.follow}
-                      unfollow={this.props.unfollow}
-                      onPageChanged={this.onPageChanged}
-                      setCurrentPage={this.props.setCurrentPage}
-                      changePages={this.props.changePages}
+            <Users users={this.props.users}
+                   totalUsersCount={this.props.totalUsersCount}
+                   usersOnPageCount={this.props.usersOnPageCount}
+                   currentPage={this.props.currentPage}
+                   pages={this.props.pages}
+                   follow={this.props.follow}
+                   unfollow={this.props.unfollow}
+                   onPageChanged={this.onPageChanged}
+                   setCurrentPage={this.props.setCurrentPage}
+                   changePages={this.props.changePages}
 
-        />
+            />
         </>
     }
 }
