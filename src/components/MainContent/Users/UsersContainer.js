@@ -2,16 +2,15 @@ import React from "react";
 import {connect} from "react-redux";
 import Users from "./Users";
 import {changePages, follow, setCurrentPage, setUsers, toggleIsFetching, unfollow} from "../../../redux/UsersReducer";
-import * as axios from "axios";
 import Preloader from "../../common/Preloader";
+import {usersAPI} from "../../../api/api";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersOnPageCount}&page=${this.props.currentPage}`,
-            {withCredentials: true})
-            .then(response => {
-                this.props.setUsers(response.data.items, response.data.totalCount);
+        usersAPI.getUsers(this.props.usersOnPageCount, this.props.currentPage)
+            .then(data => {
+                this.props.setUsers(data.items, data.totalCount);
                 this.props.toggleIsFetching(false);
             });
         this.props.changePages();//пагинация
@@ -20,9 +19,9 @@ class UsersContainer extends React.Component {
 
     onPageChanged = (pageNumber) => {
         this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersOnPageCount}&page=${pageNumber}`)
-            .then(response => {
-                this.props.setUsers(response.data.items, response.data.totalCount);
+        usersAPI.getUsers(this.props.usersOnPageCount, pageNumber)
+            .then(data => {
+                this.props.setUsers(data.items, data.totalCount);
                 this.props.toggleIsFetching(false);
             });
     }
@@ -30,7 +29,6 @@ class UsersContainer extends React.Component {
     render() {
         return <>
             {this.props.isFetching && <Preloader/>}
-            {/*{this.props.isFetching && <div>333</div>}*/}
             <Users users={this.props.users}
                    totalUsersCount={this.props.totalUsersCount}
                    usersOnPageCount={this.props.usersOnPageCount}

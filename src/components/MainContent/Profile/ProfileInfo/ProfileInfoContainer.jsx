@@ -1,10 +1,10 @@
 import React from "react";
 import ProfileInfo from "./ProfileInfo";
 import {connect} from "react-redux";
-import * as axios from "axios";
 import {SetProfileInfo} from "../../../../redux/ProfileReducer";
 import Preloader from "../../../common/Preloader";
 import {withRouter} from "react-router-dom";
+import {usersAPI} from "../../../../api/api";
 
 
 class ProfileInfoContainer extends React.Component {
@@ -14,9 +14,10 @@ class ProfileInfoContainer extends React.Component {
         if (!userId) {
             userId = 2;
         }
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-            .then(response => {
-                this.props.SetProfileInfo(response.data);
+        usersAPI.getUserProfile(userId)
+            .then(data => {
+
+                this.props.SetProfileInfo(data);
 
             });
 
@@ -24,7 +25,8 @@ class ProfileInfoContainer extends React.Component {
 
     render() {
         return (<div>
-                {(!this.props.profileInfo) ? <Preloader/> : <ProfileInfo profileInfo={this.props.profileInfo} defaultUserPic={this.props.defaultUserPic}/>}
+                {(!this.props.profileInfo) ? <Preloader/> :
+                    <ProfileInfo profileInfo={this.props.profileInfo} defaultUserPic={this.props.defaultUserPic}/>}
             </div>
         )
     }
