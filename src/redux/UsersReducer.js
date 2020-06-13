@@ -9,7 +9,7 @@ const TOGGLE_FOLLOWING_PROCESS = 'TOGGLE_FOLLOWING_PROCESS';
 let initialState = {
     users: [],
     totalUsersCount: 0,
-    usersOnPageCount: 12,
+    usersOnPageCount: 15,
     currentPage: 1,
     pages: [],
     isFetching: true,
@@ -56,25 +56,19 @@ const UsersReducer = (state = initialState, action) => {
 
         case CHANGE_PAGES:
             // отвечает за количество отображаемых страниц
-
             let arr = [];
-
             if (state.currentPage < 6) {
                 for (let i = 1; i <= 10; i++) {
                     arr.push(i);
                 }
             } else {
-
                 for (let i = (state.currentPage) - 5; i <= (state.currentPage) + 5; i++) {
                     if ((arr[arr.length - 1]) >= (Math.ceil(state.totalUsersCount / state.usersOnPageCount))) {
                         break;
                     }
                     arr.push(i);
-
                 }
-
             }
-
             return {
                 ...state,
                 pages: [...arr]
@@ -98,8 +92,8 @@ const UsersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 followingInProcess: action.isFetching
-                    ? [...state.followingInProcess, action.userId]
-                    : state.followingInProcess.filter(id => id !== action.userId)
+                    ? [...state.followingInProcess, action.userId] //добавляем в массив ID нажатого юзера
+                    : state.followingInProcess.filter(id => id !== action.userId) //выкидываем из массива отжатого:-) юзера
             }
 
 

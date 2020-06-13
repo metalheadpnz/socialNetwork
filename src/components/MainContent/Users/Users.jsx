@@ -24,11 +24,17 @@ let Users = (props) => {
 
         <div className={styles.pagination}>
             {(props.pages[0] > 1) && '...'}
-            {props.pages.map(pageNumber => <div
-                className={props.currentPage === pageNumber ? styles.currentPage : 'notCurrentPage'}
-                onClick={() => pagination(pageNumber)} key={pageNumber}>{pageNumber}</div>)}
+            {props.pages.map(pageNumber =>
+                <div
+                    className={props.currentPage === pageNumber ? styles.currentPage : 'notCurrentPage'}
+                    onClick={() => pagination(pageNumber)} key={pageNumber}>{pageNumber}
+                </div>)}
             {(props.pages[props.pages.length - 1]) < (Math.ceil(props.totalUsersCount / props.usersOnPageCount)) && '...'}
         </div>
+
+        {/*<div className={styles.pagination}>*/}
+        {/*    pagination*/}
+        {/*</div>*/}
 
         {props.users.map(u =>
             <div className={styles.user} key={u.id}>
