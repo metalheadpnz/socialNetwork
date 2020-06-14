@@ -5,9 +5,11 @@ import {usersAPI} from "../../../api/api";
 
 let Users = (props) => {
     return <div>
-
         <div className={styles.pagination}>
-            {(props.pagination.shiftDown)&&<div onClick={()=> {props.changePages("-10"); props.onPageChanged()}}>. . .</div>}
+            {(props.pagination.shiftDown) && <div onClick={() => {
+                props.setCurrentPage(props.pagination.currentPage - 10);
+                props.onPageChanged(props.pagination.currentPage - 10);
+            }}>. . .</div>}
             {props.pagination.pagesOnPagination.map(page =>
                 <div className={props.pagination.currentPage === page ? styles.currentPage : 'notCurrentPage'}
                      onClick={() => {
@@ -16,7 +18,10 @@ let Users = (props) => {
 
                      }} key={page}>{page}
                 </div>)}
-            {(props.pagination.shiftUp)&&<div onClick={() => {props.changePages("+10"); props.onPageChanged()}}>. . .</div>}
+            {(props.pagination.shiftUp) && <div onClick={() => {
+                props.setCurrentPage(props.pagination.currentPage + 10);
+                props.onPageChanged(props.pagination.currentPage + 10);
+            }}>. . .</div>}
         </div>
 
         {props.users.map(u =>

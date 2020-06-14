@@ -1,3 +1,5 @@
+import {usersAPI} from "../api/api";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
@@ -15,7 +17,8 @@ let initialState = {
         pagesOnPagination: [],
         totalPagesCount: 1,
         shiftUp: false,
-        shiftDown: false
+        shiftDown: false,
+        isNewPages: true
     },
     isFetching: true,
     followingInProcess: []
@@ -52,6 +55,7 @@ const UsersReducer = (state = initialState, action) => {
             }
 
         case SET_USERS:
+
             let totalPages = Math.ceil(action.totalUsersCount / state.pagination.usersOnPageCount)
             return {
                 ...state,
@@ -64,33 +68,23 @@ const UsersReducer = (state = initialState, action) => {
             }
 
         case CHANGE_PAGES:
-            if (action.shift === "+10") {
-                state.pagination.currentPage = ((Math.floor(state.pagination.currentPage / 10) + 1) * 10) + 1;
-            }
-            if (action.shift === "-10") {
-                state.pagination.currentPage = ((Math.floor(state.pagination.currentPage / 10) - 1) * 10) + 1;
-            }
-            let shiftUp = true;
-            let shiftDown = (state.pagination.currentPage < 10 ? false : true);
-
-            let arr = [];
-            for (let i = state.pagination.currentPage; i < ((state.pagination.currentPage) + 10); i++) {
-
+            let shiftUp = true
+            let shiftDown = (state.pagination.currentPage <= 10 ? false : true);
+            let arr = []
+            let firstPage = (Math.floor((state.pagination.currentPage - 1) / 10)) * 10 + 1;
+            for (let i = firstPage; i < firstPage + 10; i++) {
                 if (i > state.pagination.totalPagesCount) {
                     shiftUp = false;
                     break
                 }
                 arr.push(i);
             }
-
             return {
                 ...state,
                 pagination: {...state.pagination, pagesOnPagination: [...arr], shiftUp: shiftUp, shiftDown: shiftDown}
             }
 
-
         case SET_CURRENT_PAGE:
-
             return {
                 ...state,
                 pagination: {...state.pagination, currentPage: action.currentPage}
@@ -125,5 +119,16 @@ export const changePages = (shift) => ({type: CHANGE_PAGES, shift});
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
 export const toggleFollowingProcess = (isFetching, userId) => ({type: TOGGLE_FOLLOWING_PROCESS, isFetching, userId})
 
+export const getUsersThunkCreator = (usersOnPageCount, currentPage) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true));
+        usersAPI.getUsers(usersOnPageCount, currentPage)
+            .then(data => {
+                dispatch(setUsers(data.items, data.totalCount));
+                dispatch(changePages());//пагинация
+                dispatch(toggleIsFetching(false));
+            });
+    }
+}
 
 export default UsersReducer;
