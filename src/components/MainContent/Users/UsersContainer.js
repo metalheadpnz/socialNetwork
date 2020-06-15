@@ -2,13 +2,9 @@ import React from "react";
 import {connect} from "react-redux";
 import Users from "./Users";
 import {
-    changePages,
-    follow, getUsersThunkCreator,
+    followThunkCreator, getUsersThunkCreator,
     setCurrentPage,
-    setUsers,
-    toggleFollowingProcess,
-    toggleIsFetching,
-    unfollow
+    unfollowThunkCreator
 } from "../../../redux/UsersReducer";
 import Preloader from "../../common/Preloader";
 
@@ -27,14 +23,11 @@ class UsersContainer extends React.Component {
             {this.props.isFetching && <Preloader/>}
             <Users users={this.props.users}
                    pagination={this.props.pagination}
-                   follow={this.props.follow}
-                   unfollow={this.props.unfollow}
                    onPageChanged={this.onPageChanged}
                    setCurrentPage={this.props.setCurrentPage}
-                   changePages={this.props.changePages}
-                   toggleFollowingProcess={this.props.toggleFollowingProcess}
-                   followingInProcess={this.props.followingInProcess}
-                   followed={this.props.followed}
+                   followingInProcess={this.props.followingInProcess}//кнопка дизейблится
+                   followThunkCreator={this.props.followThunkCreator}
+                   unfollowThunkCreator={this.props.unfollowThunkCreator}
             />
         </>
     }
@@ -51,12 +44,8 @@ let mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-    follow,
-    unfollow,
-    setUsers,
     setCurrentPage,
-    changePages,
-    toggleIsFetching,
-    toggleFollowingProcess,
-    getUsersThunkCreator
+    getUsersThunkCreator,
+    followThunkCreator,
+    unfollowThunkCreator
 })(UsersContainer);

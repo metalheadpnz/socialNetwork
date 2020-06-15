@@ -1,3 +1,5 @@
+import {usersAPI} from "../api/api";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_TEXTAREA_DATA = 'UPDATE-TEXTAREA-DATA';
 const SET_PROFILE_INFO = 'SET_PROFILE_INFO';
@@ -49,5 +51,15 @@ export const updateTextareaDataActionCreator = (newPostText) =>
     ({type: UPDATE_TEXTAREA_DATA, textValue: newPostText})
 
 export const SetProfileInfo = (profileInfo) => ({type: SET_PROFILE_INFO, profileInfo})
+
+export const getUserProfileThunkCreator = (userId) => {
+    return (dispatch) => {
+       //ДОБАВИТь КРУТИЛКУ!!!!!!
+        usersAPI.getUserProfile(userId)
+            .then(data => {
+                dispatch(SetProfileInfo(data));
+            });
+    }
+}
 
 export default ProfileReducer;

@@ -131,4 +131,30 @@ export const getUsersThunkCreator = (usersOnPageCount, currentPage) => {
     }
 }
 
+export const followThunkCreator = (userId) => {
+    return (dispatch) => {
+        dispatch(toggleFollowingProcess(true, userId));
+        usersAPI.follow(userId)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(follow(userId))
+                }
+                dispatch(toggleFollowingProcess(false, userId));
+            })
+    }
+}
+
+export const unfollowThunkCreator = (userId) => {
+    return (dispatch) => {
+        dispatch(toggleFollowingProcess(true, userId));
+        usersAPI.unfollow(userId)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(unfollow(userId))
+                }
+                dispatch(toggleFollowingProcess(false, userId));
+            })
+    }
+}
+
 export default UsersReducer;
