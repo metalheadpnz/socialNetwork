@@ -1,5 +1,6 @@
 import React from "react";
 import s from './ProfileInfo.module.css';
+import ProfileStatus from "./ProfileStatus";
 
 function ProfileInfo(props) {
 
@@ -14,6 +15,10 @@ function ProfileInfo(props) {
             </div>
             <div>
                 {props.profileInfo.aboutMe}
+            </div>
+            <br/>
+            <div>
+                <ProfileStatus status='cTaTyc'/>
             </div>
         </div>
     );
