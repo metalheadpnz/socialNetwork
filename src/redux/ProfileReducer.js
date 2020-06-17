@@ -11,7 +11,7 @@ let initialState = {
     ],
     newPostText: 'начальное значение в state',
     profileInfo: null,
-    defaultUserPic: "https://lh3.googleusercontent.com/hGZFkUDTRPrnUJM8xhN8tk23gPQqFHWreNlLFK0aksEMUe8Y5Z8Jl01Nl2q6sWo4ji-CdQ=s92"
+    defaultUserPic: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png"
 
 }
 

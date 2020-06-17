@@ -34,7 +34,7 @@ let Users = (props) => {
                 {/*<div>*/}
                     <NavLink to={`/Profile/${u.id}`}>
                         <img className={styles.img}
-                             src={u.photos.small == null ? "https://lh3.googleusercontent.com/hGZFkUDTRPrnUJM8xhN8tk23gPQqFHWreNlLFK0aksEMUe8Y5Z8Jl01Nl2q6sWo4ji-CdQ=s92" : u.photos.small}
+                             src={u.photos.small == null ? "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png" : u.photos.small}
                              alt=""/>
                     </NavLink>
                 {/*</div>*/}
