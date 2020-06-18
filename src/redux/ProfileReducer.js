@@ -1,8 +1,9 @@
-import {usersAPI} from "../api/api";
+import {profileAPI} from "../api/api";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_TEXTAREA_DATA = 'UPDATE-TEXTAREA-DATA';
 const SET_PROFILE_INFO = 'SET_PROFILE_INFO';
+const SET_USER_STATUS = 'SET_USER_STATUS';
 
 
 let initialState = {
@@ -11,7 +12,8 @@ let initialState = {
     ],
     newPostText: 'начальное значение в state',
     profileInfo: null,
-    defaultUserPic: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png"
+    defaultUserPic: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png",
+    status: 'BLL Status'
 
 }
 
@@ -40,6 +42,12 @@ const ProfileReducer = (state = initialState, action) => {
                 profileInfo: action.profileInfo
             }
 
+        case SET_USER_STATUS:
+            return {
+                ...state,
+                status: action.status
+            }
+
         default:
             return (state);
     }
@@ -52,13 +60,35 @@ export const updateTextareaDataActionCreator = (newPostText) =>
 
 export const SetProfileInfo = (profileInfo) => ({type: SET_PROFILE_INFO, profileInfo})
 
+export const setUserStatus = (status) => ({type: SET_USER_STATUS, status})
+
 export const getUserProfileThunkCreator = (userId) => {
     return (dispatch) => {
-       //ДОБАВИТь КРУТИЛКУ!!!!!!
-        usersAPI.getUserProfile(userId)
-            .then(data => {
-                dispatch(SetProfileInfo(data));
+        //ДОБАВИТь КРУТИЛКУ!!!!!!
+        profileAPI.getUserProfile(userId)
+            .then(response => {
+                dispatch(SetProfileInfo(response.data));
             });
+    }
+}
+
+export const getUsersStatusThunk = (userId) => {
+    return (dispatch) => {
+        profileAPI.getStatus(userId)
+            .then(response => {
+                dispatch(setUserStatus(response.data));
+            })
+    }
+}
+
+export const updateUserStatusThunk = (status) => {
+    return (dispatch) => {
+        profileAPI.updateStatus(status)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(setUserStatus(status))
+                }
+            })
     }
 }
 

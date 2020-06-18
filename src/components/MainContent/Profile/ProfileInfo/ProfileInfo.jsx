@@ -18,7 +18,7 @@ function ProfileInfo(props) {
             </div>
             <br/>
             <div>
-                <ProfileStatus status='cTaTyc'/>
+                <ProfileStatus updateUserStatusThunk={props.updateUserStatusThunk} status={props.status}/>
             </div>
         </div>
     );

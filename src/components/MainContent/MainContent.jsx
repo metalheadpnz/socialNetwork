@@ -1,6 +1,5 @@
 import React from "react";
 import s from "./MainContent.module.css";
-import Profile from "./Profile/Profile";
 import {Route} from "react-router-dom";
 import News from "./News/News";
 import Music from "./Music/Music";
