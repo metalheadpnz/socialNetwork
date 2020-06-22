@@ -16,10 +16,12 @@ class ProfileInfoContainer extends React.Component {
         this.props.getUsersStatusThunk(userId)
     }
 
+
     render() {
         return (<div>
                 {(!this.props.profileInfo) ? <Preloader/> :
-                    <ProfileInfo updateUserStatusThunk={this.props.updateUserStatusThunk} status={this.props.status} profileInfo={this.props.profileInfo} defaultUserPic={this.props.defaultUserPic}/>}
+                    <ProfileInfo updateUserStatusThunk={this.props.updateUserStatusThunk} status={this.props.status}
+                                 profileInfo={this.props.profileInfo} defaultUserPic={this.props.defaultUserPic}/>}
             </div>
         )
     }
@@ -35,4 +37,8 @@ let mapStateToProps = (state) => {
 
 let withRouterProfileInfoContainer = withRouter(ProfileInfoContainer);
 
-export default connect(mapStateToProps, {getUserProfileThunkCreator,getUsersStatusThunk, updateUserStatusThunk})(withRouterProfileInfoContainer)
+export default connect(mapStateToProps, {
+    getUserProfileThunkCreator,
+    getUsersStatusThunk,
+    updateUserStatusThunk
+})(withRouterProfileInfoContainer)
