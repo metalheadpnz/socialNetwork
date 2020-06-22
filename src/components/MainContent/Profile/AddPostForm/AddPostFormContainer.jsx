@@ -1,5 +1,4 @@
-
-import {addPostActionCreator, updateTextareaDataActionCreator} from "../../../../redux/ProfileReducer";
+import {addPostActionCreator} from "../../../../redux/ProfileReducer";
 import AddPostForm from "./AddPostForm";
 import {connect} from "react-redux";
 
@@ -9,8 +8,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        updateTextareaData: (body) => dispatch(updateTextareaDataActionCreator(body)),
-        AddPost: () => dispatch(addPostActionCreator())
+        // updateTextareaData: (body) => dispatch(updateTextareaDataActionCreator(body)),
+        AddPost: (newPostText) => dispatch(addPostActionCreator(newPostText))
     }
 }
 

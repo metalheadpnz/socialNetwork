@@ -1,5 +1,4 @@
-
-import {addNewMessageActionCreator, updateNewMessageActionCreator} from "../../../../redux/DialogsReducer";
+import {addNewMessage} from "../../../../redux/DialogsReducer";
 import SendMessageForm from "./SendMessageForm";
 import {connect} from "react-redux";
 
@@ -32,14 +31,14 @@ let mapStateToProps = (state) => {
     return {newMessageText: state.DialogsPage.newMessageText}
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        addNewMessage: () => dispatch(addNewMessageActionCreator()),
-        updateNewMessage: (body) => dispatch(updateNewMessageActionCreator(body))
-    }
-}
+// let mapDispatchToProps = (dispatch) => {
+//     return {
+//         addNewMessage: (newMessageText) => dispatch(addNewMessageActionCreator(newMessageText))
+//     }
+// }
 
-let SendMessageFormContainer = connect(mapStateToProps, mapDispatchToProps)(SendMessageForm);
+// let SendMessageFormContainer = connect(mapStateToProps, mapDispatchToProps)(SendMessageForm);
+let SendMessageFormContainer = connect(mapStateToProps, {addNewMessage})(SendMessageForm);
 
 
 export default SendMessageFormContainer;

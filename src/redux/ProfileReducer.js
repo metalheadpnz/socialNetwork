@@ -1,16 +1,15 @@
 import {profileAPI} from "../api/api";
 
 const ADD_POST = 'ADD-POST';
-const UPDATE_TEXTAREA_DATA = 'UPDATE-TEXTAREA-DATA';
+// const UPDATE_TEXTAREA_DATA = 'UPDATE-TEXTAREA-DATA';
 const SET_PROFILE_INFO = 'SET_PROFILE_INFO';
 const SET_USER_STATUS = 'SET_USER_STATUS';
 
 
 let initialState = {
     postItemData: [
-        {id: 1, message: 'First post', likeCounter: 15}
+        {id: 1, message: 'initialState post text', likeCounter: 15}
     ],
-    newPostText: 'начальное значение в state',
     profileInfo: null,
     defaultUserPic: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png",
     status: 'BLL Status'
@@ -20,21 +19,30 @@ let initialState = {
 const ProfileReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case ADD_POST:
-            if (state.newPostText !== '' && state.newPostText !== undefined)
-                return {
-                    ...state, postItemData: [...state.postItemData, {
-                        id: 5,
-                        message: state.newPostText,
-                        likeCounter: 0
-                    }], newPostText: ''
-                }
-            else return (state);
+        // case ADD_POST:
+        //     if (state.newPostText !== '' && state.newPostText !== undefined)
+        //         return {
+        //             ...state, postItemData: [...state.postItemData, {
+        //                 id: 5,
+        //                 message: state.newPostText,
+        //                 likeCounter: 0
+        //             }], newPostText: ''
+        //         }
+        //     else return (state);
 
-        case UPDATE_TEXTAREA_DATA:
+        case ADD_POST:
             return {
-                ...state, newPostText: action.textValue
-            };
+                ...state, postItemData: [...state.postItemData, {
+                    id: 5,
+                    message: action.newPostText,
+                    likeCounter: 0
+                }]
+            }
+
+        // case UPDATE_TEXTAREA_DATA:
+        //     return {
+        //         ...state, newPostText: action.textValue
+        //     };
 
         case SET_PROFILE_INFO:
             return {
@@ -53,10 +61,10 @@ const ProfileReducer = (state = initialState, action) => {
     }
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST})
+export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostText})
 
-export const updateTextareaDataActionCreator = (newPostText) =>
-    ({type: UPDATE_TEXTAREA_DATA, textValue: newPostText})
+// export const updateTextareaDataActionCreator = (newPostText) =>
+//     ({type: UPDATE_TEXTAREA_DATA, textValue: newPostText})
 
 export const SetProfileInfo = (profileInfo) => ({type: SET_PROFILE_INFO, profileInfo})
 

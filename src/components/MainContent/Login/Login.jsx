@@ -5,7 +5,7 @@ import {Field, reduxForm} from "redux-form";
 
 let LoginForm = (props) => {
 
-    console.log('render')
+    // console.log('render')
 
     return (<form onSubmit={props.handleSubmit}>
             <div>

@@ -1,23 +1,25 @@
 import React from "react";
 import s from './SendMessageForm.module.css';
+import {Field, reduxForm} from "redux-form";
 
-let SendMessageForm = (props) => {
+let ReduxSendMessageFormContainer = (props) => {
 
-    let updateNewMessage = (event) => {
-        props.updateNewMessage(event.target.value);
+    let addNewMessage = (val) => {
+        props.addNewMessage(val.newMessageText);
     }
 
-    let addNewMessage = () => {
-        props.addNewMessage();
-    }
-
-    return (
-        <div className={s.SendMessageForm}>
-            <textarea value={props.newMessageText} onChange={updateNewMessage}
-            />
-            <button onClick={addNewMessage}>Send</button>
-        </div>
+    return (<ReduxSendMessageForm onSubmit={addNewMessage}/>
     );
 }
 
-export default SendMessageForm;
+const SendMessageForm = (props) => {
+    return (<form onSubmit={props.handleSubmit} className={s.SendMessageForm}>
+            <Field component="textarea" name="newMessageText"/>
+            <button>Send</button>
+        </form>
+    )
+}
+
+const ReduxSendMessageForm = reduxForm({form: 'SendMessageForm'})(SendMessageForm)
+
+export default ReduxSendMessageFormContainer;
