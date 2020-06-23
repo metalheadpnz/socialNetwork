@@ -5,7 +5,7 @@ import News from "./News/News";
 import Music from "./Music/Music";
 import Settings from "./Settings/Settings";
 import UsersContainer from "./Users/UsersContainer";
-import Login from "./Login/Login";
+import Login from "../Login/Login";
 import DialogsContainer from "./Dialogs/DialogsContainer";
 import ProfileContainer from "./Profile/ProfileContainer";
 
