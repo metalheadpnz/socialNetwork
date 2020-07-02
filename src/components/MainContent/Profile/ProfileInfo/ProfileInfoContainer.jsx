@@ -10,7 +10,7 @@ class ProfileInfoContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId;
         if (!userId) {
-            userId = 2;
+            userId = this.props.authorizedUserId;
         }
         this.props.getUserProfileThunkCreator(userId);
         this.props.getUsersStatusThunk(userId)
@@ -31,7 +31,9 @@ let mapStateToProps = (state) => {
     return {
         profileInfo: state.Profile.profileInfo,
         defaultUserPic: state.Profile.defaultUserPic,
-        status: state.Profile.status
+        status: state.Profile.status,
+        authorizedUserId: state.Auth.id,
+        isAuth: state.Auth.isAuth
     }
 }
 

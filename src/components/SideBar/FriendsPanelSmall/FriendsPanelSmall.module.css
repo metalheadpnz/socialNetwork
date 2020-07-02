@@ -1,10 +1,12 @@
 .FriendsPanelSmall {
     /*border: dashed black 1px;*/
+
 }
 
 .FriendsPanelSmall a {
     color: lightgoldenrodyellow;
     text-decoration: none;
+
 }
 
 .FriendsPanelSmall a.active {
@@ -15,6 +17,7 @@
     display: inline-block;
     /*border: dashed palevioletred 1px;*/
     margin: 3px;
+    /*border: dashed black 1px;*/
 }
 
 .FriendsPanelSmall img {

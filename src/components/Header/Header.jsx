@@ -3,7 +3,7 @@ import s from './Header.module.css'
 import {NavLink} from "react-router-dom";
 
 function Header(props) {
-    console.log(props)
+    // console.log(props)
     let logined = <div>
         <div>{props.login}</div>
         <div>{props.id}
