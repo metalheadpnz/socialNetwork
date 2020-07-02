@@ -55,7 +55,7 @@ let mapStateToProps = (state) => {
 // })(AuthRedirectComponent);
 
 
-export default compose (withAuthRedirect,connect(mapStateToProps, {
+export default compose (connect(mapStateToProps, {
     setCurrentPage,
     getUsersThunkCreator,
     followThunkCreator,

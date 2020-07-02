@@ -4,7 +4,7 @@ const ADD_POST = 'ADD-POST';
 // const UPDATE_TEXTAREA_DATA = 'UPDATE-TEXTAREA-DATA';
 const SET_PROFILE_INFO = 'SET_PROFILE_INFO';
 const SET_USER_STATUS = 'SET_USER_STATUS';
-
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
     postItemData: [
@@ -12,7 +12,8 @@ let initialState = {
     ],
     profileInfo: null,
     defaultUserPic: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png",
-    status: 'BLL Status'
+    status: 'BLL Status',
+    isFetching: false
 
 }
 
@@ -56,6 +57,12 @@ const ProfileReducer = (state = initialState, action) => {
                 status: action.status
             }
 
+        case TOGGLE_IS_FETCHING:
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
+
         default:
             return (state);
     }
@@ -69,13 +76,15 @@ export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostTe
 export const SetProfileInfo = (profileInfo) => ({type: SET_PROFILE_INFO, profileInfo})
 
 export const setUserStatus = (status) => ({type: SET_USER_STATUS, status})
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export const getUserProfileThunkCreator = (userId) => {
     return (dispatch) => {
-        //ДОБАВИТь КРУТИЛКУ!!!!!!
+        dispatch(toggleIsFetching(true))
         profileAPI.getUserProfile(userId)
             .then(response => {
                 dispatch(SetProfileInfo(response.data));
+                dispatch(toggleIsFetching(false));
             });
     }
 }
