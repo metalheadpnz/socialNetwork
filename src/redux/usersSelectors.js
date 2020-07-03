@@ -1,5 +1,6 @@
 export const getUsers = (state) => {
-    return state.UsersPage.users
+        return state.UsersPage.users.filter (f => true)
+        // return state.UsersPage.users
 }
 
 export const getPagination = (state) => {

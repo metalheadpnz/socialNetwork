@@ -97,7 +97,6 @@ const UsersReducer = (state = initialState, action) => {
             }
 
         case TOGGLE_FOLLOWING_PROCESS:
-
             return {
                 ...state,
                 followingInProcess: action.isFetching
@@ -105,6 +104,11 @@ const UsersReducer = (state = initialState, action) => {
                     : state.followingInProcess.filter(id => id !== action.userId) //выкидываем из массива отжатого:-) юзера
             }
 
+        case "FAKE":
+            return {
+                ...state,
+                fake: true
+            }
 
         default:
             return (state);

@@ -22,6 +22,7 @@ class UsersContainer extends React.Component {
     }
 
     render() {
+        console.log('RENDER');
         return <>
             {this.props.isFetching && <Preloader/>}
             <Users users={this.props.users}
@@ -48,6 +49,7 @@ class UsersContainer extends React.Component {
 
 
 let mapStateToProps = (state) => {
+    console.log('mstp');
     return {
         users: getUsers(state),
         pagination: getPagination(state),
