@@ -9,6 +9,7 @@ import {
 import Preloader from "../../common/Preloader";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {getFollowingInProcess, getIsFetching, getPagination, getUsers} from "../../../redux/usersSelectors";
 
 
 class UsersContainer extends React.Component {
@@ -35,27 +36,27 @@ class UsersContainer extends React.Component {
     }
 }
 
+// let mapStateToProps = (state) => {
+//     return {
+//         users: state.UsersPage.users,
+//         pagination: state.UsersPage.pagination,
+//         isFetching: state.UsersPage.isFetching,
+//         followingInProcess: state.UsersPage.followingInProcess
+//
+//     }
+// }
+
+
 let mapStateToProps = (state) => {
     return {
-        users: state.UsersPage.users,
-        pagination: state.UsersPage.pagination,
-        isFetching: state.UsersPage.isFetching,
-        followingInProcess: state.UsersPage.followingInProcess
-
+        users: getUsers(state),
+        pagination: getPagination(state),
+        isFetching: getIsFetching(state),
+        followingInProcess: getFollowingInProcess(state)
     }
 }
 
-// let AuthRedirectComponent = withAuthRedirect(UsersContainer)
-//
-// export default connect(mapStateToProps, {
-//     setCurrentPage,
-//     getUsersThunkCreator,
-//     followThunkCreator,
-//     unfollowThunkCreator
-// })(AuthRedirectComponent);
-
-
-export default compose (connect(mapStateToProps, {
+export default compose(connect(mapStateToProps, {
     setCurrentPage,
     getUsersThunkCreator,
     followThunkCreator,
