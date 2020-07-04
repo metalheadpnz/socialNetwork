@@ -2,6 +2,7 @@ import React from "react";
 import s from './ProfileInfo.module.css';
 import ProfileStatus from "./ProfileStatus";
 import Preloader from "../../../common/Preloader";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 function ProfileInfo(props) {
     // console.log(props);
@@ -20,7 +21,7 @@ function ProfileInfo(props) {
                 </div>
                 <br/>
                 <div>
-                    <ProfileStatus updateUserStatusThunk={props.updateUserStatusThunk} status={props.status}/>
+                    <ProfileStatusWithHooks updateUserStatusThunk={props.updateUserStatusThunk} status={props.status}/>
                 </div>
             </div>}
         </>
