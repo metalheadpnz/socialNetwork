@@ -4,6 +4,7 @@ import PostItem from "./PostItem/PostItem";
 
 function PostsList(props) {
 let key=0;
+
     let postsDataArr = props.postItemData.map
     (m => <PostItem key={key++} PostItemData={m}/>);
 

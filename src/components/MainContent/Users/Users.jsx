@@ -3,7 +3,8 @@ import styles from "./Users.module.css";
 import {NavLink} from "react-router-dom";
 
 
-let Users = (props) => {
+let Users = React.memo( props => {
+    console.log('render');
     return <div>
         <div
             // говноПагинация
@@ -58,6 +59,6 @@ let Users = (props) => {
                 }
             </div>)}
     </div>
-}
+})
 
 export default Users;

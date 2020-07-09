@@ -7,7 +7,7 @@ import {
     unfollowThunkCreator
 } from "../../../redux/UsersReducer";
 import Preloader from "../../common/Preloader";
-import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
+
 import {compose} from "redux";
 import {getFollowingInProcess, getIsFetching, getPagination, getUsers} from "../../../redux/usersSelectors";
 
@@ -22,7 +22,7 @@ class UsersContainer extends React.Component {
     }
 
     render() {
-        console.log('RENDER');
+        // console.log('RENDER');
         return <>
             {this.props.isFetching && <Preloader/>}
             <Users users={this.props.users}
@@ -49,7 +49,7 @@ class UsersContainer extends React.Component {
 
 
 let mapStateToProps = (state) => {
-    console.log('mstp');
+    // console.log('mstp');
     return {
         users: getUsers(state),
         pagination: getPagination(state),

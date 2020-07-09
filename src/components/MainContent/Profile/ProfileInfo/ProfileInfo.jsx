@@ -1,11 +1,12 @@
 import React from "react";
 import s from './ProfileInfo.module.css';
-import ProfileStatus from "./ProfileStatus";
+
 import Preloader from "../../../common/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
+
 function ProfileInfo(props) {
-    // console.log(props);
+
     return (<>
             {props.isFetching ? <Preloader/> : <div className={s.profileInfo}>
                 <div>
